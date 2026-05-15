@@ -1,85 +1,89 @@
-# CREDORA AI — Neural Recruiter Intelligence OS
+# 🌌 CREDORA AI — Neural Recruiter Intelligence OS
+> **Decode recruiter trust before interviews decide your future.**
 
-> **"Decode recruiter trust before interviews decide your future."**
+Credora AI is an enterprise-grade recruiter-intelligence platform designed to expose the "silent rejection" triggers that often bypass traditional feedback loops. By simulating recruiter psychology through neural analysis of resumes, GitHub constellations, and adaptive technical pulses, Credora provides a high-fidelity map of your recruitability.
 
-## Architecture
+---
 
+## 🛠 Architecture & Tech Stack
+
+The platform is architected as a high-performance monorepo:
+
+- **Frontend**: Next.js 16 (App Router) + TypeScript + Tailwind CSS v4 + Framer Motion.
+- **Backend**: FastAPI (Python 3.10+) + OpenAI GPT-4o + Whisper + GitHub REST API.
+- **Intelligence**: Custom neural weighting for trust, originality, and engineering maturity.
+
+```text
+/frontend     — The Cinematic Recruiter Intelligence HUD
+/backend      — Neural Core & Data Interrogation Pipeline
 ```
-/frontend     — Next.js 16 + TypeScript + Tailwind CSS
-/backend      — FastAPI + Python + OpenAI + GitHub API
-```
 
-## Quick Start
+---
 
-### 1. Frontend (Next.js)
-```bash
-cd frontend
-npm install
-cp .env.local.example .env.local   # set NEXT_PUBLIC_API_URL
-npm run dev                          # → http://localhost:3000
-```
+## ⚡️ Quick Start
 
-### 2. Backend (FastAPI)
+### 1. Neural Core (Backend)
 ```bash
 cd backend
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
-cp ../.env.example .env             # add your API keys
 uvicorn main:app --reload --port 8000
 ```
 
-### 3. Environment Keys Required
-| Key | Purpose |
-|-----|---------|
-| `OPENAI_API_KEY` | GPT-4o analysis, Whisper voice transcription |
-| `GITHUB_TOKEN` | Higher GitHub API rate limits (optional) |
-
-## Features
-
-| Page | Route | Status |
-|------|-------|--------|
-| Neural Intro | `/` | ✅ Live |
-| Resume Intelligence Scan | `/scan` | ✅ Live |
-| Recruiter Attention Heatmap™ | `/heatmap` | ✅ Live |
-| GitHub Intelligence Constellation™ | `/github` | ✅ Live |
-| Tutorial Project Detection™ | `/tutorial-detect` | ✅ Live |
-| Communication Pulse™ + Voice | `/pulse` | ✅ Live |
-| Adaptive Technical Pulse™ | `/technical` | ✅ Live |
-| Confidence vs Evidence Engine™ | `/confidence` | ✅ Live |
-| Recruiter Brain Simulation™ | `/recruiter-brain` | ✅ Live |
-| Silent Rejection Risk Engine™ | `/rejection-risk` | ✅ Live |
-| Recruitability Dashboard™ | `/dashboard` | ✅ Live |
-| Improvement Simulator™ | `/simulator` | ✅ Live |
-| Startup vs MNC Fit Engine™ | `/fit-engine` | ✅ Live |
-
-## API Endpoints
-
-| Endpoint | Method | Purpose |
-|----------|--------|---------|
-| `POST /api/resume/upload` | POST | Upload & parse resume PDF |
-| `POST /api/github/analyze` | POST | Analyze GitHub profile |
-| `POST /api/communication/analyze` | POST | Analyze text response |
-| `POST /api/communication/transcribe` | POST | Voice → text via Whisper |
-| `POST /api/technical/questions` | POST | Generate adaptive questions |
-| `POST /api/analysis/full` | POST | Compute Recruitability Index |
-| `GET /api/recruiter-brain/stream` | GET | SSE recruiter thought stream |
-
-## Design System
-
-- **Background**: `#070b14` / `#0d1321`
-- **Primary**: `#b3c5ff` (Electric Blue)
-- **Secondary**: `#7df4ff` (Cyan Glow)
-- **Alert**: `#ffb59c` (Coral)
-- **Fonts**: Sora (display) · Hanken Grotesk (body) · JetBrains Mono (data)
-
-## Production Deployment
-
-### Frontend → Vercel
+### 2. Intelligence HUD (Frontend)
 ```bash
-cd frontend && vercel deploy
+cd frontend
+npm install
+npm run dev
 ```
 
-### Backend → Railway
-```bash
-# Railway detects requirements.txt automatically
-railway up
-```
+---
+
+## 🧠 Core Intelligence Modules
+
+| Module | Purpose | Status |
+|:---|:---|:---|
+| **2-Minute Flow™** | Immersive, continuous cinematic evaluation journey. | ✅ PROD |
+| **Resume Intel** | ATS mapping, AI-phrase detection, and quantified impact scoring. | ✅ PROD |
+| **GitHub Constellation™** | Engineering maturity and tutorial-boilerplate detection. | ✅ PROD |
+| **Communication Pulse™** | Real-time voice frequency & semantic confidence analysis. | ✅ PROD |
+| **Technical Pulse™** | Adaptive interrogation based on technical depth. | ✅ PROD |
+| **Recruiter Brain™** | Simulated "thinking" stream of recruiter hesitation triggers. | ✅ PROD |
+| **Silent Rejection Risk™** | Exposure of high-priority pass-over signals. | ✅ PROD |
+
+---
+
+## 🚀 Deployment Guide
+
+### Frontend (Vercel)
+1. Push this repo to your GitHub.
+2. Connect the repository in the **Vercel Dashboard**.
+3. **Crucial**: Set the `Root Directory` to `frontend`.
+4. Add Environment Variable: `NEXT_PUBLIC_API_URL` (pointing to your hosted backend).
+
+### Backend (Railway / Render)
+1. Create a new project on **Railway**.
+2. Connect the repo and set the `Root Directory` to `backend`.
+3. Add Environment Variable: `OPENAI_API_KEY`.
+4. Railway will automatically detect the `requirements.txt` and `main.py`.
+
+---
+
+## 🔑 Environment Variables
+
+| Variable | Required | Description |
+|:---|:---|:---|
+| `OPENAI_API_KEY` | Yes | Powers the neural analysis and interrogation. |
+| `NEXT_PUBLIC_API_URL` | Yes | The URL of your FastAPI backend. |
+| `GITHUB_TOKEN` | No | Extends rate limits for deep repository scans. |
+
+---
+
+## 🎨 Design Language
+- **Atmosphere**: Deep Obsidian Space (#070b14)
+- **Primary Accent**: Electric Blue / Cyan Pulse
+- **Typography**: Sora (Display) / JetBrains Mono (Intelligence Streams)
+
+---
+*Built for the next generation of engineers who want to control the narrative.*

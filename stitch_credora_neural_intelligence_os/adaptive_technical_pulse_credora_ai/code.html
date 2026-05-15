@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CREDORA AI | ADAPTIVE TECHNICAL PULSE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-pane {
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3B82F6, transparent);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.3;
+        }
+        .starfield {
+            background-image: radial-gradient(circle at 2px 2px, rgba(226, 232, 240, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #31353c;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#e0e2eb",
+                      "primary-container": "#0a0e1a",
+                      "secondary-container": "#0566d9",
+                      "tertiary": "#4cd7f6",
+                      "surface-container-lowest": "#0b0e14",
+                      "surface-container-highest": "#31353c",
+                      "surface-container-high": "#262a31",
+                      "obsidian-base": "#020408",
+                      "secondary": "#adc6ff",
+                      "outline": "#909096",
+                      "surface-bright": "#363940",
+                      "surface-container-low": "#181c22",
+                      "primary": "#c3c6d7",
+                      "inverse-primary": "#5a5e6d",
+                      "on-primary-fixed": "#171b28",
+                      "cyan-pulse": "#06B6D4",
+                      "electric-glow": "#3B82F6",
+                      "on-secondary-fixed-variant": "#004395",
+                      "surface-container": "#1c2026",
+                      "error-container": "#93000a",
+                      "secondary-fixed": "#d8e2ff",
+                      "on-surface-variant": "#c7c6cc",
+                      "background": "#101419",
+                      "inverse-on-surface": "#2d3137",
+                      "on-tertiary-container": "#00879e",
+                      "glass-border": "rgba(255, 255, 255, 0.08)",
+                      "silver-particle": "#E2E8F0",
+                      "on-primary-fixed-variant": "#434654",
+                      "on-secondary": "#002e6a",
+                      "error": "#ffb4ab",
+                      "tertiary-container": "#001116",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#101419",
+                      "on-error": "#690005",
+                      "outline-variant": "#46464c",
+                      "surface-tint": "#c3c6d7",
+                      "on-tertiary": "#003640",
+                      "inverse-surface": "#e0e2eb",
+                      "on-tertiary-fixed": "#001f26",
+                      "on-primary-container": "#777b8a",
+                      "primary-fixed": "#dfe2f3",
+                      "on-secondary-fixed": "#001a42",
+                      "on-background": "#e0e2eb",
+                      "tertiary-fixed-dim": "#4cd7f6",
+                      "primary-fixed-dim": "#c3c6d7",
+                      "tertiary-fixed": "#acedff",
+                      "on-secondary-container": "#e6ecff",
+                      "midnight-deep": "#0A0E1A",
+                      "surface-dim": "#101419",
+                      "on-primary": "#2c303d",
+                      "on-tertiary-fixed-variant": "#004e5c",
+                      "surface-variant": "#31353c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "32px",
+                      "unit": "4px",
+                      "margin-mobile": "24px",
+                      "section-gap": "clamp(4rem, 10vh, 8rem)",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Geist"],
+                      "body-md": ["Inter"],
+                      "label-caps": ["Geist"],
+                      "headline-md": ["Geist"],
+                      "mono-data": ["Geist"],
+                      "display-xl": ["Geist"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["clamp(1.5rem, 3vw, 2.5rem)", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-md": ["1rem", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-caps": ["0.75rem", {"lineHeight": "1", "letterSpacing": "0.2em", "fontWeight": "600"}],
+                      "headline-md": ["1.75rem", {"lineHeight": "1.3", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "mono-data": ["0.875rem", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "display-xl": ["clamp(2.5rem, 5vw, 5rem)", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "600"}],
+                      "body-lg": ["1.125rem", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-obsidian-base text-on-surface font-body-md selection:bg-electric-glow/30 overflow-hidden starfield">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-transparent backdrop-blur-xl border-b border-glass-border">
+<div class="flex items-center gap-8">
+<span class="font-display-xl text-display-xl font-bold tracking-tighter text-primary drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">CREDORA AI</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-cyan-pulse font-bold border-b-2 border-cyan-pulse pb-1 font-headline-md text-headline-md tracking-widest uppercase" href="#">INTEL</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-brightness-125 hover:text-cyan-pulse transition-all duration-500 font-headline-md text-headline-md tracking-widest uppercase" href="#">NETWORK</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-brightness-125 hover:text-cyan-pulse transition-all duration-500 font-headline-md text-headline-md tracking-widest uppercase" href="#">ASSETS</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-brightness-125 hover:text-cyan-pulse transition-all duration-500 font-headline-md text-headline-md tracking-widest uppercase" href="#">OPERATIONS</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:text-cyan-pulse transition-all">notifications</button>
+<button class="material-symbols-outlined text-primary hover:text-cyan-pulse transition-all">settings</button>
+<div class="w-10 h-10 rounded-full border border-glass-border overflow-hidden p-1 bg-surface-container">
+<img alt="CIO Profile" class="w-full h-full object-cover rounded-full" data-alt="A sophisticated close-up portrait of a high-ranking intelligence officer with a focused gaze. The lighting is cinematic and moody, featuring sharp rim lighting in electric blue and soft amber tones. The background is a blurred high-tech control room with data displays, maintaining a premium, authoritative, and futuristic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCceZpfUcjHUNjSQuRVZSnMUX1G-XPNjBbPm5vL7GMalY1TZg0DGj5w90aXM4zZDE2WpzNzihDegQlbvOMb9LUCA6YQx4RqIcqzgkj-ysMfEx0GkC-6VfZqH1_DeIcqcaggR9hgjswE8L_QfpBO9Xs6GajVHr60vESo39fF6dXHx_oE9CujYd5lkaS1yJ0etCiEA4eGOcEaSdtGBI6Ab86JE4fHLTF4SpRo6U3T88Y4t6ysRPh5E2WTkhCNDvoY5-8xZK-ZGnWMzA"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Neural HUD) -->
+<aside class="fixed left-0 top-0 h-full z-[60] flex flex-col py-gutter bg-surface-container-lowest/40 backdrop-blur-2xl border-r border-glass-border docked left-0 h-screen w-20 hover:w-64 transition-all duration-700 ease-in-out group">
+<div class="px-6 mb-12 flex items-center gap-4">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-obsidian-base" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap">
+<p class="font-headline-md text-headline-md text-primary leading-none">NEURAL HUD</p>
+<p class="font-label-caps text-[10px] tracking-[0.2em] text-tertiary">V0.4 ACTIVE</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center h-12 px-6 gap-6 text-on-surface-variant/60 hover:text-on-surface hover:bg-glass-border transition-all duration-300 group/nav" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-label-caps text-label-caps tracking-[0.2em]">DASHBOARD</span>
+</a>
+<a class="flex items-center h-12 px-6 gap-6 bg-secondary-container/20 text-electric-glow border-r-4 border-electric-glow transition-all duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-label-caps text-label-caps tracking-[0.2em]">CANDIDATES</span>
+</a>
+<a class="flex items-center h-12 px-6 gap-6 text-on-surface-variant/60 hover:text-on-surface hover:bg-glass-border transition-all duration-300 group/nav" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-label-caps text-label-caps tracking-[0.2em]">PIPELINE</span>
+</a>
+<a class="flex items-center h-12 px-6 gap-6 text-on-surface-variant/60 hover:text-on-surface hover:bg-glass-border transition-all duration-300 group/nav" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-label-caps text-label-caps tracking-[0.2em]">ANALYTICS</span>
+</a>
+</nav>
+<div class="px-4 mb-8 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-full py-3 bg-electric-glow/10 border border-electric-glow/30 text-electric-glow font-label-caps text-[10px] tracking-widest hover:bg-electric-glow hover:text-white transition-all">
+                INITIATE SCAN
+            </button>
+</div>
+<div class="space-y-2 border-t border-glass-border pt-4">
+<a class="flex items-center h-12 px-6 gap-6 text-on-surface-variant/60 hover:text-on-surface" href="#">
+<span class="material-symbols-outlined">shield</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-label-caps text-label-caps tracking-[0.2em]">SECURITY</span>
+</a>
+<a class="flex items-center h-12 px-6 gap-6 text-on-surface-variant/60 hover:text-on-surface" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-label-caps text-label-caps tracking-[0.2em]">SUPPORT</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-20 pt-24 min-h-screen relative flex flex-col items-center justify-center p-gutter">
+<!-- Live Validation Log (Background Layer) -->
+<div class="fixed right-0 top-24 bottom-0 w-1/4 p-4 opacity-20 pointer-events-none overflow-hidden font-mono-data text-mono-data text-tertiary select-none">
+<div class="space-y-1">
+<p>[SYSTEM] INITIALIZING INTERROGATION MODULE...</p>
+<p>[DATA] FETCHING CANDIDATE NEURAL PROFILE: 0x82FA...</p>
+<p>[VALIDATION] PACKET 452 RECEIVED: 200 OK</p>
+<p>[KEISTROKE] LATENCY MONITORING ACTIVE</p>
+<p>[SIGNAL] ENCRYPTED TUNNEL ESTABLISHED</p>
+<p>[PULSE] FREQUENCY MODULATION AT 45Hz</p>
+<p>[SYSTEM] CORE DUMP ANALYSIS COMMENCING</p>
+<p>[TRUTH] TRUST COEFFICIENT CALCULATING...</p>
+<p>[DATA] ASYNC STACK TRACE VALIDATED</p>
+<p>[KEISTROKE] DWELL TIME: 42ms</p>
+<p>[SIGNAL] HEARTBEAT PERSISTENT</p>
+<p>[VALIDATION] MEMORY LEAK TEST PASSED</p>
+<p>[SYSTEM] INTERFACE ADAPTATION v3.2</p>
+<p>[DATA] ENCRYPTED BUFFER OVERFLOW PREVENTED</p>
+<p>[VALIDATION] PACKET 453 RECEIVED: 200 OK</p>
+<p>[KEISTROKE] FLIGHT TIME: 112ms</p>
+<p>[SIGNAL] BROADCASTING TO NEURAL HUB</p>
+<p>[PULSE] THREAT LEVEL: MINIMAL</p>
+<p>[TRUTH] GAUGE SYNCHRONIZED</p>
+</div>
+</div>
+<!-- Central Interrogation Interface -->
+<section class="max-w-4xl w-full relative z-10">
+<!-- Trust Gauge Cluster -->
+<div class="flex justify-between items-end mb-12 gap-8">
+<div class="flex-1 h-32 glass-pane p-6 relative overflow-hidden group">
+<div class="scanline"></div>
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-caps text-label-caps text-tertiary opacity-50 mb-2">RECRUITER TRUST GAUGE</p>
+<h2 class="font-display-xl text-4xl text-on-surface font-bold">89.4%</h2>
+</div>
+<div class="flex gap-1 items-end h-12">
+<div class="w-1 bg-electric-glow h-full opacity-40"></div>
+<div class="w-1 bg-electric-glow h-3/4 opacity-60"></div>
+<div class="w-1 bg-electric-glow h-full opacity-80"></div>
+<div class="w-1 bg-electric-glow h-1/2 opacity-50"></div>
+<div class="w-1 bg-electric-glow h-4/5 opacity-100 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
+<div class="w-1 bg-electric-glow h-2/3 opacity-70"></div>
+</div>
+</div>
+<p class="font-mono-data text-[10px] mt-4 text-electric-glow/60 uppercase tracking-widest">Real-time keystroke integrity analysis active</p>
+</div>
+<div class="w-48 h-32 glass-pane flex flex-col items-center justify-center border-l-4 border-cyan-pulse">
+<p class="font-label-caps text-[10px] text-cyan-pulse opacity-80 mb-1">PULSE PHASE</p>
+<span class="font-mono-data text-2xl font-bold tracking-tighter">INTEGRATION</span>
+<div class="mt-2 flex gap-1">
+<span class="w-1.5 h-1.5 bg-cyan-pulse rounded-full"></span>
+<span class="w-1.5 h-1.5 bg-cyan-pulse rounded-full"></span>
+<span class="w-1.5 h-1.5 bg-cyan-pulse/20 rounded-full"></span>
+</div>
+</div>
+</div>
+<!-- Interrogation Card -->
+<div class="glass-pane min-h-[400px] p-12 relative flex flex-col justify-center overflow-hidden border-t-2 border-t-electric-glow/40">
+<!-- Question Label -->
+<div class="absolute top-8 left-12 flex items-center gap-4">
+<span class="font-mono-data text-electric-glow text-sm">ID: Q-882-SYS</span>
+<div class="h-[1px] w-12 bg-electric-glow/20"></div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Architectural Interrogation</span>
+</div>
+<!-- Active Question -->
+<div class="space-y-8 mt-4">
+<h1 class="font-headline-lg text-headline-lg leading-tight text-on-surface">
+                        How would you design a distributed locking mechanism that maintains strong consistency in a network-partitioned environment without introducing significant tail latency?
+                    </h1>
+<!-- Terminal Input -->
+<div class="relative pt-8">
+<div class="flex items-center gap-4 mb-4 border-b border-glass-border pb-2 focus-within:border-electric-glow transition-all">
+<span class="material-symbols-outlined text-tertiary">chevron_right</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-xl font-mono-data text-tertiary placeholder:text-tertiary/20 uppercase tracking-wide" placeholder="Synthesize architectural response..." type="text"/>
+</div>
+<div class="flex justify-between items-center px-2">
+<div class="flex gap-4">
+<span class="text-[10px] font-mono-data text-on-surface-variant">LNT: 14ms</span>
+<span class="text-[10px] font-mono-data text-on-surface-variant">ACC: 98%</span>
+</div>
+<p class="text-[10px] font-label-caps text-on-surface-variant/40 italic">Awaiting critical input...</p>
+</div>
+</div>
+</div>
+<!-- Progress Decorator -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-surface-container-high">
+<div class="h-full bg-cyan-pulse w-2/3 shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="mt-12 flex justify-center gap-12">
+<button class="group flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full border border-glass-border flex items-center justify-center group-hover:border-electric-glow transition-all group-active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-electric-glow">keyboard_return</span>
+</div>
+<span class="font-label-caps text-[10px] tracking-widest opacity-40">SUBMIT RESPONSE</span>
+</button>
+<button class="group flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full border border-glass-border flex items-center justify-center group-hover:border-error transition-all group-active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-error">cancel</span>
+</div>
+<span class="font-label-caps text-[10px] tracking-widest opacity-40">ABORT SESSION</span>
+</button>
+<button class="group flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full border border-glass-border flex items-center justify-center group-hover:border-tertiary transition-all group-active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-tertiary">history</span>
+</div>
+<span class="font-label-caps text-[10px] tracking-widest opacity-40">LOG HISTORY</span>
+</button>
+</div>
+</section>
+<!-- Dynamic Context Panel (Bento-style) -->
+<section class="max-w-4xl w-full mt-gutter grid grid-cols-1 md:grid-cols-3 gap-6 mb-gutter">
+<!-- Node Status -->
+<div class="glass-pane p-6 border-l-2 border-electric-glow flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-electric-glow" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="font-mono-data text-[10px] text-electric-glow">LIVE CONNECTION</span>
+</div>
+<div>
+<h3 class="font-headline-md text-sm text-on-surface uppercase mb-1">Primary Node</h3>
+<p class="font-mono-data text-xs text-on-surface-variant opacity-60">EU-WEST-1: SECURE</p>
+</div>
+</div>
+<!-- Kinetic Load -->
+<div class="glass-pane p-6 flex flex-col justify-between h-40 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<img alt="Cyber Grid Background" class="w-full h-full object-cover" data-alt="A futuristic digital grid background with glowing blue circuit lines and data particles. The composition is sleek and technical, reflecting a high-end intelligence platform's interface. Deep obsidian tones are balanced with electric blue highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkGVX43097DBQcUheBUeMNfuCwCSYfo9J6_nXiXadU6fWSeBRTrWEhvo0DhjjPDqWJje-ss8GfnScMIFxMgTD3eFBqOE72fOAmm_d5zbi5bxeWQz6lc13WmUl6F2Nnwe-s5KoR9tycZ4osoHUw2m8vnPVmbCtFC89Z2AZ2RWW6cIT82T0ju33hsC1ZkhStPxnl0dINJV2DgZq91ixARb1NNt6a2SZF10_hJkEowBy3rkedM6__eZuxzGmmfzUX2NWgAnXL3B1mqQ"/>
+</div>
+<div class="flex justify-between items-start relative z-10">
+<span class="material-symbols-outlined text-tertiary">bolt</span>
+<span class="font-mono-data text-[10px] text-tertiary">THROUGHPUT</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-sm text-on-surface uppercase mb-1">Signal Load</h3>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2">
+<div class="w-[42%] h-full bg-tertiary shadow-[0_0_8px_rgba(76,215,246,0.6)]"></div>
+</div>
+</div>
+</div>
+<!-- Threat Assessment -->
+<div class="glass-pane p-6 flex flex-col justify-between h-40 border-r-2 border-cyan-pulse">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-cyan-pulse">security</span>
+<span class="font-mono-data text-[10px] text-cyan-pulse">ANALYTICS</span>
+</div>
+<div>
+<h3 class="font-headline-md text-sm text-on-surface uppercase mb-1">Signal Variance</h3>
+<p class="font-mono-data text-xs text-on-surface-variant opacity-60">LOW RISK (0.02σ)</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Background Decorative Elements -->
+<div class="fixed top-1/4 -left-32 w-96 h-96 bg-electric-glow/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed bottom-1/4 -right-32 w-[30rem] h-[30rem] bg-cyan-pulse/5 blur-[150px] rounded-full pointer-events-none"></div>
+</body></html>
