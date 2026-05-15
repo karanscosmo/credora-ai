@@ -1,0 +1,190 @@
+/* ================================================================
+   CREDORA AI — Global Stylesheet (Tailwind v4)
+   Fonts are loaded via <head> in layout.tsx
+   ================================================================ */
+
+@import "tailwindcss";
+
+/* ── Tailwind v4 Design Tokens ───────────────────────────────── */
+@theme {
+  /* Backgrounds */
+  --color-obsidian-base:             #020408;
+  --color-midnight-deep:             #0A0E1A;
+  --color-background:                #101419;
+  --color-surface:                   #101419;
+  --color-surface-dim:               #101419;
+  --color-surface-container:         #1c2026;
+  --color-surface-container-low:     #181c22;
+  --color-surface-container-high:    #262a31;
+  --color-surface-container-highest: #31353c;
+  --color-surface-container-lowest:  #0b0e14;
+  --color-surface-bright:            #363940;
+  --color-surface-variant:           #31353c;
+
+  /* Primary */
+  --color-primary:                   #c3c6d7;
+  --color-primary-container:         #0a0e1a;
+  --color-on-primary:                #2c303d;
+  --color-on-primary-container:      #777b8a;
+
+  /* Secondary */
+  --color-secondary:                 #adc6ff;
+  --color-secondary-container:       #0566d9;
+  --color-on-secondary:              #002e6a;
+  --color-on-secondary-container:    #e6ecff;
+
+  /* Tertiary */
+  --color-tertiary:                  #4cd7f6;
+  --color-tertiary-container:        #001116;
+  --color-on-tertiary:               #003640;
+  --color-on-tertiary-container:     #00879e;
+
+  /* On-colors */
+  --color-on-surface:                #e0e2eb;
+  --color-on-surface-variant:        #c7c6cc;
+  --color-on-background:             #e0e2eb;
+  --color-inverse-surface:           #e0e2eb;
+  --color-inverse-on-surface:        #2d3137;
+  --color-inverse-primary:           #5a5e6d;
+
+  /* Error */
+  --color-error:                     #ffb4ab;
+  --color-error-container:           #93000a;
+  --color-on-error:                  #690005;
+  --color-on-error-container:        #ffdad6;
+
+  /* Outline */
+  --color-outline:                   #909096;
+  --color-outline-variant:           #46464c;
+  --color-silver-particle:           #E2E8F0;
+  --color-surface-tint:              #c3c6d7;
+
+  /* Brand accents */
+  --color-cyan-pulse:                #06B6D4;
+  --color-electric-glow:             #3B82F6;
+  --color-glass-border:              rgba(255,255,255,0.08);
+
+  /* Font families */
+  --font-display-xl:  'Geist', sans-serif;
+  --font-headline-lg: 'Geist', sans-serif;
+  --font-headline-md: 'Geist', sans-serif;
+  --font-label-caps:  'Geist', sans-serif;
+  --font-mono-data:   'Geist Mono', monospace;
+  --font-body-md:     'Inter', sans-serif;
+  --font-body-lg:     'Inter', sans-serif;
+}
+
+/* ── Base ────────────────────────────────────────────────────── */
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+
+  body {
+    background-color: #020408;
+    color: #e0e2eb;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+}
+
+/* ── Material Symbols — must be at root, NOT inside @layer ─────
+   Font is loaded via <link> in layout.tsx <head>               */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.25rem;    /* default, overridden by text-* */
+  line-height: 1;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── Component utilities ─────────────────────────────────────── */
+@layer components {
+  .glass-pane {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-pane-heavy {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .starfield {
+    background-color: #020408;
+    background-image: radial-gradient(circle at 1px 1px, rgba(226, 232, 240, 0.04) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+
+  .cyan-glow { box-shadow: 0 0 24px rgba(6, 182, 212, 0.35); }
+  .blue-glow { box-shadow: 0 0 24px rgba(59, 130, 246, 0.35); }
+
+  .scan-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #06B6D4 50%, transparent 100%);
+    animation: scanDown 5s linear infinite;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .stream-in         { animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .stream-in-delay-1 { animation-delay: 0.1s; }
+  .stream-in-delay-2 { animation-delay: 0.2s; }
+  .stream-in-delay-3 { animation-delay: 0.35s; }
+
+  .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+}
+
+/* ── Keyframes ───────────────────────────────────────────────── */
+@keyframes scanDown {
+  0%   { top: -4px; opacity: 0; }
+  10%  { opacity: 0.35; }
+  90%  { opacity: 0.35; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes reverse-spin {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+.animate-reverse-spin {
+  animation: reverse-spin 10s linear infinite;
+}

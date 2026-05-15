@@ -1,0 +1,24 @@
+# Credora AI — Backend Dependencies (Production)
+
+# Core framework
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.0.0
+python-multipart>=0.0.9
+
+# HTTP client for GitHub API
+httpx>=0.27.0
+
+# PDF parsing (graceful if not installed)
+PyMuPDF>=1.24.0
+pdfplumber>=0.11.0
+
+# AI / OpenAI
+openai>=1.30.0
+
+# Auth (optional — falls back to simple tokens)
+python-jose[cryptography]>=3.3.0
+
+# Utilities
+aiofiles>=23.0.0
+python-dotenv>=1.0.0
