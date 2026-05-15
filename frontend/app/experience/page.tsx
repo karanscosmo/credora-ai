@@ -101,10 +101,10 @@ export default function ExperiencePage() {
           <span className="material-symbols-outlined text-7xl text-cyan-pulse animate-pulse">neurology</span>
         </div>
       </div>
-      <h1 className="font-headline-lg text-5xl md:text-7xl mb-6 tracking-tight">
+      <h1 className="font-headline-lg text-4xl md:text-7xl mb-6 tracking-tight">
         Complete recruiter-grade evaluation in <span className="text-cyan-pulse underline underline-offset-8 decoration-cyan-pulse/30">under 2 minutes.</span>
       </h1>
-      <p className="text-on-surface-variant max-w-2xl text-lg mb-10 leading-relaxed font-body-lg">
+      <p className="text-on-surface-variant max-w-2xl text-base md:text-lg mb-10 leading-relaxed font-body-lg">
         Resume, portfolio, communication, technical depth, and recruiter trust analyzed in one continuous intelligence flow.
       </p>
       <button 
@@ -245,7 +245,7 @@ export default function ExperiencePage() {
                 ))}
               </div>
 
-              <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-2xl mx-auto">
                 {['Clarity', 'Confidence', 'Technical Vocabulary'].map((m: string, i: number) => (
                    <div key={m} className="p-4 bg-white/3 rounded-2xl border border-white/5">
                       <p className="text-[10px] font-mono-data text-on-surface-variant uppercase mb-2">{m}</p>
@@ -313,7 +313,7 @@ export default function ExperiencePage() {
           <div className="flex flex-col items-center justify-center min-h-[60vh] stream-in">
             <div className="w-full max-w-4xl glass-pane p-12 rounded-[40px]">
                <h3 className="font-headline-md text-3xl mb-8 text-center">Neural Improvement Pathways</h3>
-               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                  {[
                    { gain: '+18', text: 'Deploy live demos publicly', icon: 'cloud_upload' },
                    { gain: '+12', text: 'Quantify impact in resume', icon: 'trending_up' },

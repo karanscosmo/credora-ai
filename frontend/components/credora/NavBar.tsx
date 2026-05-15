@@ -50,6 +50,12 @@ export default function NavBar({ showSide = true }: NavBarProps) {
           <button className="p-2 text-on-surface-variant hover:text-white transition-colors" aria-label="Notifications">
             <span className="material-symbols-outlined text-xl">notifications</span>
           </button>
+          <button 
+            onClick={() => setExpanded(!expanded)}
+            className="md:hidden p-2 text-on-surface-variant hover:text-white transition-colors"
+          >
+            <span className="material-symbols-outlined text-xl">menu</span>
+          </button>
           <Link href="/login" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 36, height: 36, borderRadius: '50%', background: 'linear-gradient(135deg,#06B6D4,#3B82F6)', fontSize: 13, fontWeight: 700, color: '#020408', border: '1px solid rgba(255,255,255,0.15)', flexShrink: 0, textDecoration: 'none' }}>
             C
           </Link>
@@ -58,16 +64,30 @@ export default function NavBar({ showSide = true }: NavBarProps) {
 
       {/* ── Side HUD ────────────────────────────────────────── */}
       {showSide && (
-        <aside
-          onMouseEnter={() => setExpanded(true)}
-          onMouseLeave={() => setExpanded(false)}
-          className={`
-            fixed left-0 top-0 h-full z-40 flex flex-col
-            bg-obsidian-base/95 backdrop-blur-2xl border-r border-white/[0.06]
-            transition-all duration-500 ease-in-out overflow-hidden
-            ${expanded ? 'w-64' : 'w-[72px]'}
-          `}
-        >
+        <>
+          {/* Mobile Overlay */}
+          <div 
+            className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-30 transition-opacity md:hidden ${expanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            onClick={() => setExpanded(false)}
+          />
+          
+          <aside
+            onMouseEnter={() => window.innerWidth > 768 && setExpanded(true)}
+            onMouseLeave={() => window.innerWidth > 768 && setExpanded(false)}
+            className={`
+              fixed left-0 top-0 h-full z-40 flex flex-col
+              bg-obsidian-base/95 backdrop-blur-2xl border-r border-white/[0.06]
+              transition-all duration-500 ease-in-out overflow-hidden
+              ${expanded ? 'w-64' : 'w-0 md:w-[72px]'}
+            `}
+          >
+            {/* Mobile Close Button */}
+            <button 
+              onClick={() => setExpanded(false)}
+              className="absolute top-4 right-4 md:hidden text-white"
+            >
+              <span className="material-symbols-outlined">close</span>
+            </button>
           {/* HUD brand */}
           <div className="flex items-center gap-3 px-5 pt-20 pb-6">
             <div className="flex-shrink-0 h-8 w-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">

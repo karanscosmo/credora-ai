@@ -44,7 +44,7 @@ export default function TechnicalPulsePage() {
         </div>
       </div>
 
-      <main className="ml-24 pt-24 min-h-screen relative flex flex-col items-center justify-center p-gutter">
+      <main className="transition-all duration-500 ml-0 md:ml-[72px] pt-24 min-h-screen relative flex flex-col items-center justify-center p-4 md:p-gutter">
         <section className="max-w-5xl w-full relative z-10 stream-in">
           {/* Trust Gauge Cluster */}
           <div className="flex flex-col md:flex-row justify-between items-stretch mb-12 gap-8">
@@ -53,9 +53,9 @@ export default function TechnicalPulsePage() {
               <div className="flex justify-between items-start">
                 <div>
                   <p className="font-label-caps text-[10px] text-tertiary opacity-70 mb-2 uppercase tracking-widest">RECRUITER TRUST GAUGE</p>
-                  <h2 className="font-display-xl text-4xl md:text-5xl text-on-surface font-bold tracking-tighter">{trustScore}%</h2>
+                  <h2 className="font-display-xl text-3xl md:text-5xl text-on-surface font-bold tracking-tighter">{trustScore}%</h2>
                 </div>
-                <div className="flex gap-1 items-end h-16">
+                <div className="flex gap-1 items-end h-12 md:h-16">
                   {[40, 60, 80, 50, 100, 70, 90, 60].map((h: number, i: number) => (
                     <div 
                       key={i} 
