@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import NavBar from '@/components/credora/NavBar';
+import { sessionStore } from '@/lib/api';
 
 export default function CommunicationPulsePage() {
   const [pulseLevel, setPulseLevel] = useState(0);
