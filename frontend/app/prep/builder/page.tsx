@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import NavBar from '@/components/credora/NavBar';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -20,7 +20,7 @@ const TEMPLATES = [
   { id: 'executive', name: 'Executive' },
 ];
 
-export default function ResumeBuilderPage() {
+function BuilderContent() {
   const searchParams = useSearchParams();
   const companyId = searchParams.get('company') || 'Target Company';
   
@@ -229,5 +229,13 @@ export default function ResumeBuilderPage() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function ResumeBuilderPage() {
+  return (
+    <Suspense fallback={<div className="h-screen bg-obsidian-base flex items-center justify-center font-mono-data text-cyan-pulse uppercase tracking-[0.3em]">Calibrating Neural Builder...</div>}>
+      <BuilderContent />
+    </Suspense>
   );
 }

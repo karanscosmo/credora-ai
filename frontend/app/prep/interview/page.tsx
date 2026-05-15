@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import NavBar from '@/components/credora/NavBar';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,7 +11,7 @@ const PREP_TABS = [
   { id: 'mock', name: 'Mock Interview', icon: 'mic' },
 ];
 
-export default function InterviewPrepPage() {
+function InterviewPrepContent() {
   const searchParams = useSearchParams();
   const company = searchParams.get('company') || 'Target Company';
   const [activeTab, setActiveTab] = useState('roadmap');
@@ -50,6 +50,14 @@ export default function InterviewPrepPage() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function InterviewPrepPage() {
+  return (
+    <Suspense fallback={<div className="h-screen bg-obsidian-base flex items-center justify-center font-mono-data text-electric-glow uppercase tracking-[0.3em]">Initializing Hiring Intel...</div>}>
+      <InterviewPrepContent />
+    </Suspense>
   );
 }
 
