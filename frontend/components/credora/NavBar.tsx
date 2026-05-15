@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
 const NAV_ITEMS = [
+  { name: 'Prep Engine', path: '/prep', icon: 'rocket_launch' },
   { name: '2-Minute Flow', path: '/experience', icon: 'auto_awesome' },
   { name: 'Dashboard', path: '/dashboard', icon: 'grid_view' },
   { name: 'Neural Scan', path: '/scan', icon: 'document_scanner' },
