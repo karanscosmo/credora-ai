@@ -129,7 +129,7 @@ export default function ExperiencePage() {
             { label: 'Technical Pulse', icon: 'terminal', active: step === 'technical' },
             { label: 'Recruiter Trust Analysis', icon: 'psychology', active: step === 'thinking' },
             { label: 'Final Recruitability Synthesis', icon: 'verified', active: step === 'synthesis' }
-          ].map((s, i) => (
+          ].map((s: any, i: number) => (
             <div key={i} className={`flex items-center gap-6 transition-all duration-700 ${s.active ? 'opacity-100 translate-x-2' : 'opacity-20'}`}>
               <div className={`h-12 w-12 rounded-xl flex items-center justify-center border ${s.active ? 'border-cyan-pulse/40 bg-cyan-pulse/10 text-cyan-pulse shadow-[0_0_15px_rgba(6,182,212,0.2)]' : 'border-white/10 text-on-surface-variant'}`}>
                 <span className="material-symbols-outlined">{s.icon}</span>
@@ -159,7 +159,7 @@ export default function ExperiencePage() {
               <div className="scan-line" />
               <div className="flex flex-col md:flex-row gap-12 items-center">
                 <div className="h-64 w-48 bg-white/5 rounded-xl border border-white/10 relative overflow-hidden flex flex-col p-4 gap-2">
-                   {Array.from({length: 12}).map((_, i) => (
+                   {Array.from({length: 12}).map((_: any, i: number) => (
                      <div key={i} className="h-2 bg-cyan-pulse/20 rounded w-full animate-pulse" style={{animationDelay: `${i*0.1}s`}} />
                    ))}
                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian-base to-transparent" />
@@ -171,7 +171,7 @@ export default function ExperiencePage() {
                   <h3 className="font-headline-md text-3xl mb-4">Resume Intelligence Scan</h3>
                   <p className="text-on-surface-variant mb-8">Extracting measurable impact and mapping technical skill nodes...</p>
                   <div className="flex flex-wrap gap-3">
-                    {['React', 'Node.js', 'Distributed Systems', 'K8s', 'Architecture'].map((skill, i) => (
+                    {['React', 'Node.js', 'Distributed Systems', 'K8s', 'Architecture'].map((skill: string, i: number) => (
                       <div key={skill} className="px-4 py-2 bg-cyan-pulse/10 border border-cyan-pulse/20 rounded-full text-xs font-mono-data text-cyan-pulse stream-in" style={{animationDelay: `${i*0.2}s`}}>
                         {skill}
                       </div>
@@ -195,7 +195,7 @@ export default function ExperiencePage() {
                    <h3 className="font-headline-md text-3xl mb-4">GitHub Constellation</h3>
                    <p className="text-on-surface-variant mb-8">Scanning repository nodes for originality and engineering maturity.</p>
                    <div className="space-y-4">
-                      {['Core-Engine', 'Auth-Module', 'Neural-Router'].map((repo, i) => (
+                      {['Core-Engine', 'Auth-Module', 'Neural-Router'].map((repo: string, i: number) => (
                         <div key={repo} className="flex items-center justify-between p-4 bg-white/3 rounded-xl border border-white/5 stream-in" style={{animationDelay: `${i*0.2}s`}}>
                           <div className="flex items-center gap-3">
                             <span className="material-symbols-outlined text-cyan-pulse">hub</span>
@@ -210,7 +210,7 @@ export default function ExperiencePage() {
                    <div className="absolute inset-0 border border-cyan-pulse/20 rounded-full animate-spin-slow" />
                    <div className="absolute inset-10 border border-cyan-pulse/10 rounded-full animate-reverse-spin" />
                    <span className="material-symbols-outlined text-6xl text-cyan-pulse">hub</span>
-                   {Array.from({length: 8}).map((_, i) => (
+                   {Array.from({length: 8}).map((_: any, i: number) => (
                      <div 
                       key={i} 
                       className="absolute h-3 w-3 bg-cyan-pulse rounded-full" 
@@ -233,7 +233,7 @@ export default function ExperiencePage() {
               <p className="text-on-surface-variant mb-12">Analyzing voice frequency, sentiment trajectory, and semantic confidence.</p>
               
               <div className="flex items-center justify-center h-48 gap-1 mb-12">
-                {Array.from({length: 50}).map((_, i) => (
+                {Array.from({length: 50}).map((_: any, i: number) => (
                   <div 
                     key={i} 
                     className="w-1.5 bg-cyan-pulse rounded-full transition-all duration-300"
@@ -246,7 +246,7 @@ export default function ExperiencePage() {
               </div>
 
               <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
-                {['Clarity', 'Confidence', 'Technical Vocabulary'].map((m, i) => (
+                {['Clarity', 'Confidence', 'Technical Vocabulary'].map((m: string, i: number) => (
                    <div key={m} className="p-4 bg-white/3 rounded-2xl border border-white/5">
                       <p className="text-[10px] font-mono-data text-on-surface-variant uppercase mb-2">{m}</p>
                       <p className="text-xl font-bold text-cyan-pulse">{(90 + Math.random() * 9).toFixed(1)}%</p>
@@ -301,7 +301,7 @@ export default function ExperiencePage() {
                  <p className="text-xl italic text-on-surface-variant animate-pulse">"{thought}"</p>
               </div>
               <div className="mt-12 flex justify-center gap-2">
-                 {Array.from({length: 3}).map((_, i) => (
+                 {Array.from({length: 3}).map((_: any, i: number) => (
                    <div key={i} className="h-1.5 w-1.5 rounded-full bg-cyan-pulse animate-bounce" style={{animationDelay: `${i*0.2}s`}} />
                  ))}
               </div>
@@ -318,7 +318,7 @@ export default function ExperiencePage() {
                    { gain: '+18', text: 'Deploy live demos publicly', icon: 'cloud_upload' },
                    { gain: '+12', text: 'Quantify impact in resume', icon: 'trending_up' },
                    { gain: '+15', text: 'Document repo architecture', icon: 'architecture' }
-                 ].map((path, i) => (
+                 ].map((path: any, i: number) => (
                    <div key={i} className="p-6 glass-pane border-cyan-pulse/20 rounded-2xl flex flex-col items-center text-center stream-in" style={{animationDelay: `${i*0.2}s`}}>
                       <div className="h-12 w-12 rounded-xl bg-cyan-pulse/10 flex items-center justify-center mb-4">
                         <span className="material-symbols-outlined text-cyan-pulse">{path.icon}</span>

@@ -37,7 +37,7 @@ export default function TechnicalPulsePage() {
       {/* Live Validation Log (Background Layer) */}
       <div className="fixed right-0 top-24 bottom-0 w-1/4 p-8 opacity-20 pointer-events-none overflow-hidden font-mono-data text-[10px] text-tertiary select-none">
         <div className="space-y-1">
-          {keystrokes.map((log, i) => (
+          {keystrokes.map((log: string, i: number) => (
             <p key={i}>{log}</p>
           ))}
           <p className="animate-pulse">_</p>
@@ -56,7 +56,7 @@ export default function TechnicalPulsePage() {
                   <h2 className="font-display-xl text-4xl md:text-5xl text-on-surface font-bold tracking-tighter">{trustScore}%</h2>
                 </div>
                 <div className="flex gap-1 items-end h-16">
-                  {[40, 60, 80, 50, 100, 70, 90, 60].map((h, i) => (
+                  {[40, 60, 80, 50, 100, 70, 90, 60].map((h: number, i: number) => (
                     <div 
                       key={i} 
                       className="w-1.5 bg-electric-glow transition-all duration-500" 

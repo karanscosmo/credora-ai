@@ -94,7 +94,7 @@ export default function DashboardPage() {
 
         {/* ── Tabs ───────────────────────────────────────────── */}
         <div className="flex gap-1 mb-8 p-1 glass-pane rounded-xl w-fit border border-white/[0.06]">
-          {TABS.map((t) => (
+          {TABS.map((t: any) => (
             <button
               key={t.key}
               onClick={() => setActiveTab(t.key)}
@@ -141,7 +141,7 @@ export default function DashboardPage() {
                     { label: 'Leadership Signals', score: 71 },
                     { label: 'Neural Adaptability', score: 96 },
                     { label: 'Strategic Thinking', score: 88 },
-                  ].map(({ label, score }) => (
+                  ].map(({ label, score }: any) => (
                     <div key={label}>
                       <div className="flex justify-between text-xs mb-1.5">
                         <span className="font-mono-data text-on-surface-variant uppercase tracking-wide">{label}</span>
@@ -162,7 +162,7 @@ export default function DashboardPage() {
                   <div className="mt-6 pt-5 border-t border-white/[0.06]">
                     <p className="font-mono-data text-[9px] text-on-surface-variant/50 uppercase tracking-widest mb-3">Detected Skills</p>
                     <div className="flex flex-wrap gap-2">
-                      {resume.skills.map((s) => (
+                      {resume.skills.map((s: string) => (
                         <span key={s} className="px-3 py-1 bg-electric-glow/10 border border-electric-glow/20 rounded-full text-[10px] font-mono-data text-electric-glow uppercase">
                           {s}
                         </span>
@@ -182,7 +182,7 @@ export default function DashboardPage() {
                       'Resume phrases sound AI-generated',
                       'No live project deployment URLs detected',
                       'GitHub portfolio lacks architectural depth',
-                    ]).map((s, i) => (
+                    ]).map((s: any, i: number) => (
                       <li key={i} className="flex items-start gap-3">
                         <span className="material-symbols-outlined text-error text-xl mt-0.5 flex-shrink-0">warning</span>
                         <p className="text-xs text-on-surface-variant leading-relaxed">{typeof s === 'string' ? s : (s as any).label ?? s}</p>
@@ -227,7 +227,7 @@ export default function DashboardPage() {
                 <div className="glass-pane p-6 rounded-2xl">
                   <p className="font-mono-data text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-5">Repository Constellation</p>
                   <div className="space-y-3">
-                    {github.repos.slice(0, 8).map((repo) => (
+                    {github.repos.slice(0, 8).map((repo: any) => (
                       <div key={repo.name} className={`flex items-center justify-between p-4 rounded-xl border transition-colors ${repo.isTutorial ? 'border-error/20 bg-error/5' : 'border-white/[0.06] hover:border-cyan-pulse/20'}`}>
                         <div className="flex items-center gap-3 min-w-0">
                           <span className={`material-symbols-outlined text-base flex-shrink-0 ${repo.isTutorial ? 'text-error' : repo.verified ? 'text-cyan-pulse' : 'text-on-surface-variant/40'}`}>
@@ -276,7 +276,7 @@ export default function DashboardPage() {
                     { section: 'Professional Summary', attention: 42, sentiment: 'skeptical' },
                     { section: 'Education', attention: 31, sentiment: 'neutral' },
                     { section: 'Projects', attention: 76, sentiment: 'positive' },
-                  ]).map((h) => (
+                  ]).map((h: any) => (
                     <div key={h.section}>
                       <div className="flex justify-between text-xs mb-1.5">
                         <span className="font-mono-data text-on-surface uppercase">{h.section}</span>
@@ -304,7 +304,7 @@ export default function DashboardPage() {
                     'Strong team player',
                     'Results-driven professional',
                     'Dynamic self-starter',
-                  ]).map((phrase, i) => (
+                  ]).map((phrase: any, i: number) => (
                     <div key={i} className="flex items-center gap-3 p-3 bg-error/8 border border-error/15 rounded-xl">
                       <span className="material-symbols-outlined text-error text-base">flag</span>
                       <span className="text-xs text-on-surface-variant italic">"{typeof phrase === 'string' ? phrase : ''}"</span>
@@ -333,7 +333,7 @@ export default function DashboardPage() {
                     { title: 'Add a system-design architecture diagram', impact: 'medium', gain: 9 },
                     { title: 'Pin and document your best GitHub repo', impact: 'medium', gain: 7 },
                     { title: 'Remove generic AI-sounding phrases', impact: 'high', gain: 14 },
-                  ].map((imp, i) => (
+                  ].map((imp: any, i: number) => (
                     <div key={i} className="flex items-center justify-between p-4 bg-white/3 rounded-xl border border-white/[0.06] hover:border-electric-glow/20 transition-colors">
                       <div className="flex items-center gap-3">
                         <span className={`h-2 w-2 rounded-full flex-shrink-0 ${imp.impact === 'high' ? 'bg-cyan-pulse' : 'bg-electric-glow'}`} />

@@ -263,7 +263,7 @@ export default function ScanPage() {
               { label: 'Full Analysis', value: '< 2min' },
               { label: 'Modules', value: '9' },
               { label: 'Accuracy', value: '98.4%' },
-            ].map((m) => (
+            ].map((m: any) => (
               <div key={m.label} className="p-5 border-r border-white/[0.06] last:border-r-0 even:border-r-0">
                 <p className="font-mono-data text-[9px] text-on-surface-variant/50 uppercase tracking-widest mb-1">{m.label}</p>
                 <p className="font-mono-data text-lg text-cyan-pulse font-bold">{m.value}</p>
@@ -283,7 +283,7 @@ export default function ScanPage() {
               {logs.length === 0 ? (
                 <p className="text-on-surface-variant/30 italic">Awaiting scan initiation...</p>
               ) : (
-                logs.map((log, i) => (
+                logs.map((log: string, i: number) => (
                   <p
                     key={i}
                     className={`leading-relaxed ${

@@ -70,7 +70,7 @@ export default function FinalReportPage() {
               {[
                 { label: 'Startup Fit', value: startupFit, color: 'text-cyan-pulse' },
                 { label: 'MNC Fit', value: mncFit, color: 'text-electric-glow' },
-              ].map((m) => (
+              ].map((m: any) => (
                 <div key={m.label} className="text-center">
                   <p className={`font-mono-data text-4xl font-bold ${m.color}`}>{m.value}</p>
                   <p className="font-mono-data text-[9px] text-on-surface-variant/50 uppercase tracking-widest mt-1">{m.label}</p>
@@ -84,7 +84,7 @@ export default function FinalReportPage() {
         <div className="glass-pane p-6 rounded-2xl mb-6 stream-in stream-in-delay-1">
           <p className="font-mono-data text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-5">Score Breakdown by Module</p>
           <div className="space-y-4">
-            {components.map((c) => (
+            {components.map((c: any) => (
               <div key={c.label}>
                 <div className="flex justify-between text-xs mb-1.5">
                   <div className="flex items-center gap-3">
@@ -115,7 +115,7 @@ export default function FinalReportPage() {
                 'No live deployment URLs detected',
                 'AI-generated resume phrasing found',
                 'GitHub portfolio entropy too high',
-              ]).map((r, i) => (
+              ]).map((r: any, i: number) => (
                 <li key={i} className="flex items-start gap-3 text-xs text-on-surface-variant">
                   <span className="material-symbols-outlined text-error text-base mt-0.5">warning</span>
                   <span>{typeof r === 'string' ? r : (r as any)?.label ?? r}</span>
@@ -134,7 +134,7 @@ export default function FinalReportPage() {
                 { title: 'Add live demo URLs', gain: 18 },
                 { title: 'Rewrite resume summary with metrics', gain: 12 },
                 { title: 'Build one original GitHub project', gain: 15 },
-              ].map((imp, i) => (
+              ].map((imp: any, i: number) => (
                 <li key={i} className="flex items-center justify-between text-xs">
                   <span className="text-on-surface-variant">{imp.title}</span>
                   <span className="font-mono-data text-electric-glow font-bold">+{imp.gain}pts</span>

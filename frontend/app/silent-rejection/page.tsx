@@ -119,7 +119,7 @@ export default function SilentRejectionPage() {
 
         {/* Summary stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {(['Critical', 'High', 'Medium', 'Low'] as RiskLevel[]).map((level) => {
+          {(['Critical', 'High', 'Medium', 'Low'] as RiskLevel[]).map((level: RiskLevel) => {
             const count = risks.filter((r) => r.level === level).length;
             const s = LEVEL_STYLE[level];
             return (
@@ -138,10 +138,10 @@ export default function SilentRejectionPage() {
 
         {/* Filter pills */}
         <div className="flex gap-2 mb-6">
-          {(['All', 'Critical', 'High', 'Medium', 'Low'] as const).map((f) => (
+          {(['All', 'Critical', 'High', 'Medium', 'Low'] as const).map((f: string) => (
             <button
               key={f}
-              onClick={() => setFilter(f)}
+              onClick={() => setFilter(f as any)}
               className={`px-4 py-1.5 rounded-full text-[10px] font-mono-data uppercase tracking-widest border transition-all ${
                 filter === f ? 'bg-electric-glow/20 text-white border-electric-glow/40' : 'glass-pane border-white/8 text-on-surface-variant hover:text-on-surface'
               }`}
@@ -153,7 +153,7 @@ export default function SilentRejectionPage() {
 
         {/* Risk cards */}
         <div className="space-y-4 stream-in stream-in-delay-2">
-          {filtered.map((risk, i) => {
+          {filtered.map((risk: Risk, i: number) => {
             const s = LEVEL_STYLE[risk.level];
             return (
               <div key={i} className={`glass-pane p-6 rounded-2xl border-l-4 ${s.border}`}>

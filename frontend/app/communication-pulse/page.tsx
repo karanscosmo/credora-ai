@@ -70,12 +70,15 @@ export default function CommunicationPulsePage() {
 
               {/* Real-time Waveforms */}
               <div className="absolute bottom-12 w-full px-12 flex items-end justify-center gap-1 h-32">
-                {waveform.map((h, i) => (
+                {waveform.map((h: number, i: number) => (
                   <div 
                     key={i} 
-                    className="w-1 bg-gradient-to-t from-tertiary/20 via-electric-glow/60 to-cyan-pulse transition-all duration-300"
-                    style={{ height: `${h}%`, opacity: Math.max(0.2, Math.sin((i + pulseLevel) * 0.2)) }}
-                  ></div>
+                    className="w-1.5 bg-cyan-pulse rounded-full transition-all duration-300"
+                    style={{
+                      height: `${h}%`,
+                      opacity: Math.max(0.2, h/100)
+                    }}
+                  />
                 ))}
               </div>
 
@@ -123,7 +126,7 @@ export default function CommunicationPulsePage() {
                 </div>
               </div>
               <div className="space-y-6">
-                 {metrics.map((m, i) => (
+                 {metrics.map((m: any, i: number) => (
                    <div key={m.name} className="space-y-2">
                       <div className="flex justify-between text-[10px] font-mono-data uppercase">
                         <span className="text-on-surface-variant">{m.name}</span>

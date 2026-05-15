@@ -66,7 +66,7 @@ export default function StartupMNCFitPage() {
 
         {/* Fit cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 stream-in stream-in-delay-1">
-          {FIT_DATA.map((fit) => (
+          {FIT_DATA.map((fit: any) => (
             <div key={fit.label} className="glass-pane p-6 rounded-2xl border border-white/[0.06]">
               <div className="flex items-end gap-3 mb-4">
                 <span className={`font-mono-data text-5xl font-bold ${fit.color}`}>{fit.score}</span>
@@ -87,7 +87,7 @@ export default function StartupMNCFitPage() {
                 <div>
                   <p className="font-mono-data text-[9px] text-on-surface-variant/50 uppercase tracking-widest mb-2">Best For</p>
                   <ul className="space-y-1.5">
-                    {fit.bestFor.map((b) => (
+                    {fit.bestFor.map((b: string) => (
                       <li key={b} className="flex items-center gap-2 text-xs text-on-surface-variant">
                         <span className="h-1 w-1 rounded-full bg-cyan-pulse flex-shrink-0" />
                         {b}
@@ -98,7 +98,7 @@ export default function StartupMNCFitPage() {
                 <div>
                   <p className="font-mono-data text-[9px] text-error/70 uppercase tracking-widest mb-2">Watch Out</p>
                   <ul className="space-y-1.5">
-                    {fit.watchouts.map((w) => (
+                    {fit.watchouts.map((w: string) => (
                       <li key={w} className="flex items-center gap-2 text-xs text-on-surface-variant">
                         <span className="h-1 w-1 rounded-full bg-error flex-shrink-0" />
                         {w}
@@ -115,7 +115,7 @@ export default function StartupMNCFitPage() {
         <div className="glass-pane p-6 rounded-2xl mb-10 stream-in stream-in-delay-2">
           <p className="font-mono-data text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-5">Engineering Archetype Matrix</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {archetypes.map((a) => (
+            {archetypes.map((a: any) => (
               <div key={a.label} className={`p-4 rounded-xl border transition-all ${a.match ? 'border-cyan-pulse/30 bg-cyan-pulse/5' : 'border-white/[0.06] opacity-50'}`}>
                 <div className="flex items-center gap-2 mb-2">
                   <span className={`h-2 w-2 rounded-full ${a.match ? 'bg-cyan-pulse' : 'bg-on-surface-variant/30'}`} />
@@ -138,11 +138,11 @@ export default function StartupMNCFitPage() {
               { tier: 'Tier 1 Match', companies: ['Y Combinator startups', 'AI-native companies', 'Seed-to-Series-B'], color: 'border-cyan-pulse/30 bg-cyan-pulse/5' },
               { tier: 'Tier 2 Match', companies: ['Mid-size tech companies', 'Remote-first platforms', 'Series C+'], color: 'border-electric-glow/20 bg-electric-glow/5' },
               { tier: 'Stretch Goal', companies: ['FAANG companies', 'Fortune 500 tech divisions', 'Quant firms'], color: 'border-white/10' },
-            ].map((t) => (
+            ].map((t: any) => (
               <div key={t.tier} className={`p-4 rounded-xl border ${t.color}`}>
                 <p className="font-mono-data text-[9px] text-on-surface-variant/60 uppercase tracking-widest mb-3">{t.tier}</p>
                 <ul className="space-y-2">
-                  {t.companies.map((c) => (
+                  {t.companies.map((c: string) => (
                     <li key={c} className="text-xs text-on-surface-variant flex items-center gap-2">
                       <span className="h-1 w-1 rounded-full bg-on-surface-variant/40" />
                       {c}

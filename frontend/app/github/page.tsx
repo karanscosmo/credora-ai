@@ -56,13 +56,13 @@ export default function GitHubPage() {
 
         {/* Constellation Map SVG Overlay */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
-          {nodes.map((n, i) => i > 0 && (
+          {nodes.map((n: any, i: number) => i > 0 && (
             <line key={i} stroke="#06B6D4" strokeWidth="0.5" x1={nodes[0].left} x2={n.left} y1={nodes[0].top} y2={n.top}></line>
           ))}
         </svg>
 
         {/* Interactive Nodes */}
-        {nodes.map((node, i) => (
+        {nodes.map((node: any, i: number) => (
           <div 
             key={i}
             className="absolute -translate-x-1/2 -translate-y-1/2 group"
@@ -111,7 +111,7 @@ export default function GitHubPage() {
               { label: 'Originality Core', value: `${originality}%` },
               { label: 'Codebase Entropy', value: '0.12' },
               { label: 'Architecture Depth', value: github?.engineeringRating || 'High' }
-            ].map((stat) => (
+            ].map((stat: any) => (
               <div key={stat.label} className="flex justify-between items-center">
                 <span className="font-mono-data text-[10px] text-on-surface-variant/60 uppercase">{stat.label}</span>
                 <span className="font-mono-data text-[10px] text-white">{stat.value}</span>
