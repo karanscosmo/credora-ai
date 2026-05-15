@@ -37,6 +37,7 @@ function BuilderContent() {
   const [activeTemplate, setActiveTemplate] = useState('modern');
   const [atsScore, setAtsScore] = useState(65);
   const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [isOptimizing, setIsOptimizing] = useState(false);
 
   useEffect(() => {
     // Simulate AI analysis based on company
@@ -46,6 +47,33 @@ function BuilderContent() {
       `The role at ${companyId} prioritizes System Design—consider adding a dedicated section.`
     ]);
   }, [companyId]);
+
+  const handleAddSkill = () => {
+    const skill = prompt("Enter skill name:");
+    if (skill) setData({ ...data, skills: [...data.skills, skill] });
+  };
+
+  const handleAddProject = () => {
+    setData({
+      ...data,
+      projects: [...data.projects, { name: 'New Project', desc: 'Describe your impact here...' }]
+    });
+  };
+
+  const updateProject = (index: number, field: string, value: string) => {
+    const updated = [...data.projects];
+    updated[index] = { ...updated[index], [field]: value };
+    setData({ ...data, projects: updated });
+  };
+
+  const handleOptimize = () => {
+    setIsOptimizing(true);
+    setTimeout(() => {
+      setAtsScore(88);
+      setSuggestions(prev => ["IMPROVED: Distributed Systems integration added.", ...prev.slice(1)]);
+      setIsOptimizing(false);
+    }, 2000);
+  };
 
   return (
     <div className="min-h-screen bg-obsidian-base text-on-surface starfield">
@@ -103,7 +131,10 @@ function BuilderContent() {
                         </button>
                      </div>
                    ))}
-                   <button className="px-3 py-1.5 border border-dashed border-cyan-pulse/30 rounded-full text-[10px] font-mono-data text-cyan-pulse uppercase hover:bg-cyan-pulse/5 transition-all">
+                   <button 
+                    onClick={handleAddSkill}
+                    className="px-3 py-1.5 border border-dashed border-cyan-pulse/30 rounded-full text-[10px] font-mono-data text-cyan-pulse uppercase hover:bg-cyan-pulse/5 transition-all"
+                   >
                      + Add Skill
                    </button>
                  </div>
@@ -113,20 +144,31 @@ function BuilderContent() {
               <div className="space-y-4">
                  <label className="font-mono-data text-[10px] text-on-surface-variant uppercase tracking-widest">Key Projects</label>
                  {data.projects.map((p: any, i: number) => (
-                   <div key={i} className="p-5 glass-pane border border-white/10 rounded-2xl space-y-3">
+                   <div key={i} className="p-5 glass-pane border border-white/10 rounded-2xl space-y-3 relative group">
+                      <button 
+                        onClick={() => setData({ ...data, projects: data.projects.filter((_, idx) => idx !== i) })}
+                        className="absolute top-4 right-4 opacity-0 group-hover:opacity-40 hover:!opacity-100 transition-opacity"
+                      >
+                         <span className="material-symbols-outlined text-sm">delete</span>
+                      </button>
                       <input 
                         value={p.name}
+                        onChange={(e) => updateProject(i, 'name', e.target.value)}
                         className="w-full bg-transparent border-none text-sm font-bold focus:outline-none text-white"
                         placeholder="Project Name"
                       />
                       <textarea 
                         value={p.desc}
+                        onChange={(e) => updateProject(i, 'desc', e.target.value)}
                         className="w-full bg-transparent border-none text-xs text-on-surface-variant focus:outline-none h-16 resize-none"
                         placeholder="Project description and impact..."
                       />
                    </div>
                  ))}
-                 <button className="w-full py-3 border border-dashed border-white/10 rounded-2xl text-[10px] font-mono-data text-on-surface-variant uppercase hover:border-white/30 transition-all">
+                 <button 
+                  onClick={handleAddProject}
+                  className="w-full py-3 border border-dashed border-white/10 rounded-2xl text-[10px] font-mono-data text-on-surface-variant uppercase hover:border-white/30 transition-all"
+                 >
                    + Add Project
                  </button>
               </div>
@@ -134,9 +176,15 @@ function BuilderContent() {
 
             {/* Action CTA */}
             <div className="pt-10 sticky bottom-0 bg-obsidian-base/80 backdrop-blur-md pb-10">
-               <button className="w-full py-5 bg-cyan-pulse text-midnight-deep font-bold rounded-2xl shadow-[0_0_30px_rgba(6,182,212,0.3)] flex items-center justify-center gap-3 group">
-                  <span className="material-symbols-outlined">magic_button</span>
-                  OPTIMIZE FOR {companyId.toUpperCase()}
+               <button 
+                onClick={handleOptimize}
+                disabled={isOptimizing}
+                className={`w-full py-5 bg-cyan-pulse text-midnight-deep font-bold rounded-2xl shadow-[0_0_30px_rgba(6,182,212,0.3)] flex items-center justify-center gap-3 group transition-all ${isOptimizing ? 'opacity-50 cursor-wait' : 'hover:brightness-110'}`}
+               >
+                  <span className={`material-symbols-outlined ${isOptimizing ? 'animate-spin' : ''}`}>
+                    {isOptimizing ? 'refresh' : 'magic_button'}
+                  </span>
+                  {isOptimizing ? 'ANALYZING...' : `OPTIMIZE FOR ${companyId.toUpperCase()}`}
                </button>
             </div>
           </div>
@@ -150,13 +198,13 @@ function BuilderContent() {
                 <div className="relative h-20 w-20 flex items-center justify-center">
                    <svg className="w-full h-full -rotate-90">
                       <circle cx="40" cy="40" r="35" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="6" />
-                      <circle cx="40" cy="40" r="35" fill="none" stroke="#06B6D4" strokeWidth="6" strokeDasharray={`${(atsScore/100) * 220} 220`} strokeLinecap="round" />
+                      <circle cx="40" cy="40" r="35" fill="none" stroke="#06B6D4" strokeWidth="6" strokeDasharray={`${(atsScore/100) * 220} 220`} strokeLinecap="round" className="transition-all duration-1000" />
                    </svg>
                    <div className="absolute inset-0 flex items-center justify-center font-mono-data text-xl font-bold">{atsScore}%</div>
                 </div>
                 <div>
                    <p className="font-mono-data text-[10px] text-cyan-pulse uppercase tracking-widest mb-1">ATS COMPATIBILITY</p>
-                   <p className="text-xs text-on-surface-variant max-w-[200px]">Your resume matches 84% of the core requirements for {companyId}.</p>
+                   <p className="text-xs text-on-surface-variant max-w-[200px]">Your resume matches {atsScore}% of the core requirements for {companyId}.</p>
                 </div>
              </div>
              <button className="px-5 py-2.5 bg-white text-midnight-deep text-[10px] font-bold rounded-xl flex items-center gap-2 hover:scale-105 transition-transform">
@@ -221,7 +269,7 @@ function BuilderContent() {
                 
                 <div className="p-4 rounded-2xl bg-electric-glow/10 border border-electric-glow/20">
                    <p className="text-[9px] font-bold text-electric-glow uppercase mb-2">Hiring Probability</p>
-                   <div className="text-2xl font-mono-data font-bold text-white">72%</div>
+                   <div className="text-2xl font-mono-data font-bold text-white">{atsScore > 80 ? '89%' : '72%'}</div>
                    <p className="text-[8px] text-on-surface-variant mt-1 italic">Probability score based on {companyId} profile match.</p>
                 </div>
              </div>

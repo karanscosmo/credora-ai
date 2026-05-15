@@ -157,27 +157,64 @@ function QuestionBankView({ company }: { company: string }) {
 }
 
 function MockInterviewView({ company }: { company: string }) {
+  const [isSimulating, setIsSimulating] = useState(false);
+  const [feedback, setFeedback] = useState<string | null>(null);
+
+  const startSimulation = () => {
+    setIsSimulating(true);
+    setFeedback(null);
+    setTimeout(() => {
+      setIsSimulating(false);
+      setFeedback("Simulation Complete: Your technical responses were strong, but try to speak more slowly during the System Design discussion.");
+    }, 4000);
+  };
+
   return (
     <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center justify-center min-h-[50vh] text-center">
        <div className="relative mb-10">
           <div className="absolute inset-0 bg-cyan-pulse/30 blur-[100px] rounded-full animate-pulse" />
           <div className="h-48 w-48 rounded-full border-2 border-cyan-pulse/40 bg-obsidian-base relative z-10 flex flex-col items-center justify-center gap-2">
-             <span className="material-symbols-outlined text-5xl text-cyan-pulse animate-pulse">mic</span>
-             <p className="text-[10px] font-mono-data text-cyan-pulse uppercase tracking-widest">Neural Evaluator Ready</p>
+             <span className={`material-symbols-outlined text-5xl text-cyan-pulse ${isSimulating ? 'animate-bounce' : ''}`}>
+               {isSimulating ? 'graphic_eq' : 'mic'}
+             </span>
+             <p className="text-[10px] font-mono-data text-cyan-pulse uppercase tracking-widest">
+               {isSimulating ? 'Listening...' : 'Neural Evaluator Ready'}
+             </p>
           </div>
        </div>
-       <h3 className="font-headline-md text-3xl mb-4">Ready for a Mock Round?</h3>
+       <h3 className="font-headline-md text-3xl mb-4">
+         {isSimulating ? 'Interview in Progress' : 'Ready for a Mock Round?'}
+       </h3>
        <p className="text-on-surface-variant max-w-md text-sm mb-10">
-         Our AI Recruiter will conduct a 15-minute voice/text interview specifically based on {company}'s hiring patterns and your resume.
+         {isSimulating 
+           ? "The AI is currently analyzing your speech patterns and technical accuracy." 
+           : `Our AI Recruiter will conduct a 15-minute voice/text interview specifically based on ${company}'s hiring patterns and your resume.`}
        </p>
-       <button className="px-10 py-5 bg-white text-midnight-deep font-bold rounded-2xl hover:scale-105 transition-all flex items-center gap-3">
-          <span className="material-symbols-outlined">play_circle</span>
-          START SIMULATION
+       
+       <AnimatePresence>
+         {feedback && (
+           <motion.div 
+            initial={{ opacity: 0, y: 10 }} 
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-8 p-6 glass-pane border-cyan-pulse/30 rounded-2xl max-w-lg text-sm text-cyan-pulse font-medium italic"
+           >
+             "{feedback}"
+           </motion.div>
+         )}
+       </AnimatePresence>
+
+       <button 
+        onClick={startSimulation}
+        disabled={isSimulating}
+        className={`px-10 py-5 bg-white text-midnight-deep font-bold rounded-2xl transition-all flex items-center gap-3 ${isSimulating ? 'opacity-50 grayscale' : 'hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.2)]'}`}
+       >
+          <span className="material-symbols-outlined">{isSimulating ? 'hourglass_top' : 'play_circle'}</span>
+          {isSimulating ? 'SIMULATING...' : 'START SIMULATION'}
        </button>
        
        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
           {[
-            { label: 'Voice Quality', val: 'Detecting...' },
+            { label: 'Voice Quality', val: isSimulating ? 'Active' : 'Detecting...' },
             { label: 'Latency', val: '42ms' },
             { label: 'Evaluation Mode', val: 'Strict' }
           ].map((m: any, i: number) => (
