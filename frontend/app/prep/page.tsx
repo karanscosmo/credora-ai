@@ -56,7 +56,7 @@ export default function PrepLandingPage() {
             <div className="lg:col-span-4 space-y-4">
               <h3 className="font-mono-data text-[11px] text-on-surface-variant uppercase tracking-widest mb-6">01. Select Your Domain</h3>
               <div className="grid grid-cols-1 gap-3">
-                {DOMAINS.map((domain) => (
+                {DOMAINS.map((domain: any) => (
                   <button
                     key={domain.id}
                     onClick={() => { setSelectedDomain(domain.id); setSelectedCompany(null); }}
@@ -97,7 +97,7 @@ export default function PrepLandingPage() {
                     <h3 className="font-mono-data text-[11px] text-on-surface-variant uppercase tracking-widest mb-6">02. Choose Target Company</h3>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {companies.map((company) => (
+                      {companies.map((company: any) => (
                         <button
                           key={company.id}
                           onClick={() => setSelectedCompany(company.id)}
@@ -122,7 +122,7 @@ export default function PrepLandingPage() {
                           </p>
                           
                           <div className="flex gap-2">
-                             {['ATS Optimized', 'DSA Heavy', 'Culture Fit'].map(tag => (
+                             {['ATS Optimized', 'DSA Heavy', 'Culture Fit'].map((tag: string) => (
                                <span key={tag} className="px-2 py-1 rounded-md bg-white/5 border border-white/10 text-[9px] font-mono-data text-on-surface-variant/70 uppercase">
                                  {tag}
                                </span>
@@ -190,7 +190,7 @@ export default function PrepLandingPage() {
                   { company: 'Google', role: 'L3 Software Engineer', progress: 65, date: '2 days ago' },
                   { company: 'NVIDIA', role: 'DL Systems Engineer', progress: 20, date: '5 days ago' },
                   { company: 'Stripe', role: 'Backend Engineer', progress: 90, date: 'Yesterday' },
-                ].map((track, i) => (
+                ].map((track: any, i: number) => (
                   <Link key={i} href="/prep/dashboard" className="glass-pane p-5 rounded-2xl border border-white/5 hover:border-white/20 transition-all group">
                      <div className="flex justify-between items-start mb-4">
                         <p className="font-bold text-sm">{track.company}</p>

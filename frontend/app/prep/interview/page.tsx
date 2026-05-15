@@ -29,7 +29,7 @@ export default function InterviewPrepPage() {
                <h1 className="font-headline-lg text-4xl md:text-5xl tracking-tight">Prepare for <span className="text-electric-glow">{company}.</span></h1>
             </div>
             <div className="flex gap-2 p-1 glass-pane rounded-xl border-white/5">
-               {PREP_TABS.map(tab => (
+               {PREP_TABS.map((tab: any) => (
                  <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
@@ -64,7 +64,7 @@ function RoadmapView({ company }: { company: string }) {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-8">
        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {steps.map((s, i) => (
+          {steps.map((s: any, i: number) => (
             <div key={i} className="glass-pane p-6 rounded-[32px] border-t-2 border-electric-glow relative group overflow-hidden">
                <div className="absolute top-0 right-0 p-4 opacity-5">
                   <span className="text-6xl font-bold font-display-xl">{i+1}</span>
@@ -85,7 +85,7 @@ function RoadmapView({ company }: { company: string }) {
                   'Prepare 3 "Impact Stories" using STAR method.',
                   'Verify System Design fundamentals: CAP Theorem, Load Balancing.',
                   `Deep-dive into ${company}'s specific tech stack documentation.`
-                ].map((item, i) => (
+                ].map((item: string, i: number) => (
                   <div key={i} className="flex items-center gap-4 group cursor-pointer">
                      <div className="h-5 w-5 rounded border border-white/20 flex items-center justify-center group-hover:border-cyan-pulse transition-colors">
                         <span className="material-symbols-outlined text-[10px] text-cyan-pulse opacity-0 group-hover:opacity-100">check</span>
@@ -112,7 +112,7 @@ function QuestionBankView({ company }: { company: string }) {
   return (
     <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
        <div className="flex gap-4 border-b border-white/5 pb-4">
-          {categories.map(c => (
+          {categories.map((c: string) => (
             <button 
               key={c} 
               onClick={() => setSelectedCat(c)}
@@ -124,7 +124,7 @@ function QuestionBankView({ company }: { company: string }) {
        </div>
        
        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {Array.from({length: 6}).map((_, i) => (
+          {Array.from({length: 6}).map((_: any, i: number) => (
             <div key={i} className="p-6 glass-pane border border-white/5 rounded-2xl hover:border-white/20 transition-all cursor-help group">
                <div className="flex justify-between items-start mb-4">
                   <span className="px-2 py-0.5 bg-white/5 rounded text-[8px] font-mono-data text-on-surface-variant uppercase">Question {i+1}</span>
@@ -172,7 +172,7 @@ function MockInterviewView({ company }: { company: string }) {
             { label: 'Voice Quality', val: 'Detecting...' },
             { label: 'Latency', val: '42ms' },
             { label: 'Evaluation Mode', val: 'Strict' }
-          ].map((m, i) => (
+          ].map((m: any, i: number) => (
             <div key={i} className="p-4 glass-pane border border-white/5 rounded-xl">
                <p className="text-[9px] font-mono-data text-on-surface-variant uppercase mb-1">{m.label}</p>
                <p className="text-xs font-bold text-white">{m.val}</p>

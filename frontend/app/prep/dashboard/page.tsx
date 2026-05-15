@@ -32,7 +32,7 @@ export default function StudentPrepDashboard() {
 
           {/* Stats Bar */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-             {stats.map((s, i) => (
+             {stats.map((s: any, i: number) => (
                <div key={i} className="glass-pane p-6 rounded-[32px] border border-white/5 stream-in" style={{ animationDelay: `${i * 0.1}s` }}>
                   <p className="text-[10px] font-mono-data text-on-surface-variant uppercase tracking-widest mb-2">{s.label}</p>
                   <div className="text-3xl font-bold text-white mb-2">{s.val}</div>
@@ -57,7 +57,7 @@ export default function StudentPrepDashboard() {
                    
                    {/* Mock Chart Area */}
                    <div className="h-64 flex items-end gap-2 md:gap-4">
-                      {[40, 55, 45, 70, 65, 80, 75, 90, 85, 95].map((h, i) => (
+                      {[40, 55, 45, 70, 65, 80, 75, 90, 85, 95].map((h: number, i: number) => (
                         <div key={i} className="flex-1 flex flex-col items-center gap-2 group">
                            <div 
                             className="w-full bg-cyan-pulse/20 rounded-t-lg transition-all duration-1000 group-hover:bg-cyan-pulse/40 relative"
@@ -79,7 +79,7 @@ export default function StudentPrepDashboard() {
                         { company: 'Stripe', role: 'Backend Engineer', status: 'In Prep', readiness: 84, color: 'bg-indigo-500' },
                         { company: 'Google', role: 'L3 Software Engineer', status: 'Ready', readiness: 92, color: 'bg-red-500' },
                         { company: 'Meta', role: 'Frontend Engineer', status: 'Review', readiness: 68, color: 'bg-blue-500' },
-                      ].map((p, i) => (
+                      ].map((p: any, i: number) => (
                         <div key={i} className="p-4 bg-white/3 rounded-2xl border border-white/5 flex flex-col md:flex-row items-center gap-6 group hover:bg-white/5 transition-all">
                            <div className={`h-10 w-10 rounded-xl ${p.color} flex items-center justify-center font-bold text-white text-xs`}>
                               {p.company[0]}
@@ -115,7 +115,7 @@ export default function StudentPrepDashboard() {
                         { skill: 'Redis Caching', gap: 'High', priority: 'Critical' },
                         { skill: 'System Design', gap: 'Med', priority: 'Medium' },
                         { skill: 'STAR Method', gap: 'Low', priority: 'Quick Fix' },
-                      ].map((s, i) => (
+                      ].map((s: any, i: number) => (
                         <div key={i} className="flex justify-between items-center p-3 rounded-xl bg-white/3 border border-white/5">
                            <div>
                               <p className="text-xs font-bold">{s.skill}</p>
@@ -137,7 +137,7 @@ export default function StudentPrepDashboard() {
                         'Complete Mock Interview for Google',
                         'Refine Project section for Stripe',
                         'Master CAP Theorem basics',
-                      ].map((t, i) => (
+                      ].map((t: string, i: number) => (
                         <div key={i} className="flex gap-4 group cursor-pointer">
                            <div className="h-5 w-5 rounded-full border border-white/10 flex items-center justify-center group-hover:border-electric-glow transition-colors">
                               <span className="material-symbols-outlined text-[10px] text-electric-glow opacity-0 group-hover:opacity-100">flash_on</span>

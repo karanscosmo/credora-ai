@@ -66,7 +66,7 @@ export default function ResumeBuilderPage() {
             <section className="space-y-4">
                <p className="font-mono-data text-[10px] text-on-surface-variant uppercase tracking-widest">01. Select Template</p>
                <div className="flex gap-2">
-                 {TEMPLATES.map(t => (
+                 {TEMPLATES.map((t: any) => (
                    <button
                     key={t.id}
                     onClick={() => setActiveTemplate(t.id)}
@@ -95,7 +95,7 @@ export default function ResumeBuilderPage() {
               <div className="space-y-3">
                  <label className="font-mono-data text-[10px] text-on-surface-variant uppercase tracking-widest">Core Skills</label>
                  <div className="flex flex-wrap gap-2">
-                   {data.skills.map((skill, i) => (
+                   {data.skills.map((skill: string, i: number) => (
                      <div key={i} className="px-3 py-1.5 glass-pane border border-white/10 rounded-full text-xs flex items-center gap-2 group">
                         {skill}
                         <button onClick={() => setData({...data, skills: data.skills.filter((_, idx) => idx !== i)})} className="opacity-40 group-hover:opacity-100 transition-opacity">
@@ -112,7 +112,7 @@ export default function ResumeBuilderPage() {
               {/* Projects */}
               <div className="space-y-4">
                  <label className="font-mono-data text-[10px] text-on-surface-variant uppercase tracking-widest">Key Projects</label>
-                 {data.projects.map((p, i) => (
+                 {data.projects.map((p: any, i: number) => (
                    <div key={i} className="p-5 glass-pane border border-white/10 rounded-2xl space-y-3">
                       <input 
                         value={p.name}
@@ -182,13 +182,13 @@ export default function ResumeBuilderPage() {
                    <section className="space-y-2">
                       <h4 className="text-[10px] font-bold uppercase border-b border-gray-200">Core Intelligence</h4>
                       <div className="flex flex-wrap gap-x-4 gap-y-1">
-                        {data.skills.map(s => <span key={s} className="text-[9px] font-bold">• {s}</span>)}
+                        {data.skills.map((s: string) => <span key={s} className="text-[9px] font-bold">• {s}</span>)}
                       </div>
                    </section>
 
                    <section className="space-y-4">
                       <h4 className="text-[10px] font-bold uppercase border-b border-gray-200">Strategic Projects</h4>
-                      {data.projects.map((p, i) => (
+                      {data.projects.map((p: any, i: number) => (
                         <div key={i} className="space-y-1">
                            <div className="flex justify-between items-baseline">
                               <h5 className="text-[10px] font-bold uppercase">{p.name}</h5>
@@ -205,7 +205,7 @@ export default function ResumeBuilderPage() {
              <div className="w-64 flex flex-col gap-4">
                 <p className="font-mono-data text-[9px] text-on-surface-variant uppercase tracking-widest px-2">Neural Suggestions</p>
                 <div className="flex-1 space-y-3 overflow-y-auto pr-2 scrollbar-hide">
-                   {suggestions.map((s, i) => (
+                   {suggestions.map((s: string, i: number) => (
                      <motion.div 
                       key={i}
                       initial={{ opacity: 0, x: 20 }}
