@@ -147,7 +147,8 @@ export default function NavBar({ showSide = true }: NavBarProps) {
               </span>
             </button>
           </div>
-        </aside>
+          </aside>
+        </>
       )}
     </>
   );
