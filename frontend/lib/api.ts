@@ -3,7 +3,8 @@
 // All backend communication goes through here
 // ============================================================
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const isProd = typeof window !== 'undefined' && window.location.hostname !== 'localhost';
+const API_BASE = isProd ? '/_/backend' : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000');
 
 // ─── Generic fetch wrapper ───────────────────────────────────
 async function apiFetch<T>(

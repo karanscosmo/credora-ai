@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CREDORA AI | CONFIDENCE vs EVIDENCE ENGINE™</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #020408;
+            color: #e0e2eb;
+            overflow: hidden;
+        }
+        .glass-pane {
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+        }
+        .glow-electric {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        }
+        .text-shadow-glow {
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#e0e2eb",
+                      "primary-container": "#0a0e1a",
+                      "secondary-container": "#0566d9",
+                      "tertiary": "#4cd7f6",
+                      "surface-container-lowest": "#0b0e14",
+                      "surface-container-highest": "#31353c",
+                      "surface-container-high": "#262a31",
+                      "obsidian-base": "#020408",
+                      "secondary": "#adc6ff",
+                      "outline": "#909096",
+                      "surface-bright": "#363940",
+                      "surface-container-low": "#181c22",
+                      "primary": "#c3c6d7",
+                      "inverse-primary": "#5a5e6d",
+                      "on-primary-fixed": "#171b28",
+                      "cyan-pulse": "#06B6D4",
+                      "electric-glow": "#3B82F6",
+                      "on-secondary-fixed-variant": "#004395",
+                      "surface-container": "#1c2026",
+                      "error-container": "#93000a",
+                      "secondary-fixed": "#d8e2ff",
+                      "on-surface-variant": "#c7c6cc",
+                      "background": "#101419",
+                      "inverse-on-surface": "#2d3137",
+                      "on-tertiary-container": "#00879e",
+                      "glass-border": "rgba(255, 255, 255, 0.08)",
+                      "silver-particle": "#E2E8F0",
+                      "on-primary-fixed-variant": "#434654",
+                      "on-secondary": "#002e6a",
+                      "error": "#ffb4ab",
+                      "tertiary-container": "#001116",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#101419",
+                      "on-error": "#690005",
+                      "outline-variant": "#46464c",
+                      "surface-tint": "#c3c6d7",
+                      "on-tertiary": "#003640",
+                      "inverse-surface": "#e0e2eb",
+                      "on-tertiary-fixed": "#001f26",
+                      "on-primary-container": "#777b8a",
+                      "primary-fixed": "#dfe2f3",
+                      "on-secondary-fixed": "#001a42",
+                      "on-background": "#e0e2eb",
+                      "tertiary-fixed-dim": "#4cd7f6",
+                      "primary-fixed-dim": "#c3c6d7",
+                      "tertiary-fixed": "#acedff",
+                      "on-secondary-container": "#e6ecff",
+                      "midnight-deep": "#0A0E1A",
+                      "surface-dim": "#101419",
+                      "on-primary": "#2c303d",
+                      "on-tertiary-fixed-variant": "#004e5c",
+                      "surface-variant": "#31353c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "32px",
+                      "unit": "4px",
+                      "margin-mobile": "24px",
+                      "section-gap": "clamp(4rem, 10vh, 8rem)",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Geist"],
+                      "body-md": ["Inter"],
+                      "label-caps": ["Geist"],
+                      "headline-md": ["Geist"],
+                      "mono-data": ["Geist"],
+                      "display-xl": ["Geist"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["clamp(1.5rem, 3vw, 2.5rem)", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-md": ["1rem", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-caps": ["0.75rem", {"lineHeight": "1", "letterSpacing": "0.2em", "fontWeight": "600"}],
+                      "headline-md": ["1.75rem", {"lineHeight": "1.3", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "mono-data": ["0.875rem", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "display-xl": ["clamp(2.5rem, 5vw, 5rem)", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "600"}],
+                      "body-lg": ["1.125rem", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-obsidian-base font-body-md selection:bg-cyan-pulse selection:text-midnight-deep">
+<!-- Global Top Bar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-transparent backdrop-blur-xl border-b border-glass-border">
+<div class="flex items-center gap-8">
+<span class="font-display-xl text-display-xl font-bold tracking-tighter text-primary drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">CREDORA AI</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-headline-md text-headline-md tracking-widest uppercase text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-brightness-125 hover:text-cyan-pulse" href="#">INTEL</a>
+<a class="font-headline-md text-headline-md tracking-widest uppercase text-cyan-pulse font-bold border-b-2 border-cyan-pulse pb-1" href="#">NETWORK</a>
+<a class="font-headline-md text-headline-md tracking-widest uppercase text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-brightness-125 hover:text-cyan-pulse" href="#">ASSETS</a>
+<a class="font-headline-md text-headline-md tracking-widest uppercase text-on-surface-variant font-medium hover:text-primary transition-colors hover:backdrop-brightness-125 hover:text-cyan-pulse" href="#">OPERATIONS</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:text-cyan-pulse transition-all">notifications</button>
+<button class="material-symbols-outlined text-primary hover:text-cyan-pulse transition-all">settings</button>
+<div class="w-10 h-10 rounded-full border border-glass-border overflow-hidden bg-surface-container">
+<img alt="CIO Profile" data-alt="A professional headshot of a high-ranking intelligence officer with sharp features and a focused gaze, lit by cinematic cool blue studio lighting. The background is a blurred high-tech command center with glowing data interfaces. The overall aesthetic is clean, authoritative, and sophisticated, reflecting the premium tech brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCehYh-FhNBVyNcMpAuJ7wCQc-df-dUF89zgGbuSIlT5i7PFggutDCOWJnnZYuz_JJrN6hv4vUI3hJP4hn0UHqZjEIsXe9d-ZWE05AFOwsHtm9Zvcw-_L6HkbW3WJQdui4Gs0CGRoOjdS0yZKtgNIvyOyRaWmx-ECPscPF14eij9Afpq7KJqyQQaHampwOfAO_IyRO9VnNvGxCQYbp3WjAwP9r9ddVnJSQT9siqNBRVTFwqdVXUGZblygnvNeQXIf3I48iaC9Bmrw"/>
+</div>
+</div>
+</header>
+<!-- Sidebar HUD (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full z-[60] flex flex-col py-gutter bg-surface-container-lowest/40 backdrop-blur-2xl border-r border-glass-border w-20 hover:w-64 transition-all duration-700 ease-in-out group">
+<div class="flex flex-col items-center group-hover:items-start px-6 mb-12 overflow-hidden">
+<div class="flex items-center gap-4 min-w-[200px]">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-obsidian-base" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<h3 class="font-headline-md text-headline-md text-primary leading-none">NEURAL HUD</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant/60">V0.4 ACTIVE</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2 px-2 flex-grow">
+<a class="flex items-center gap-4 p-3 rounded text-on-surface-variant/60 hover:text-on-surface hover:bg-glass-border transition-all duration-300 group/item" href="#">
+<span class="material-symbols-outlined text-2xl">grid_view</span>
+<span class="opacity-0 group-hover:opacity-100 font-label-caps tracking-[0.2em] whitespace-nowrap">DASHBOARD</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded bg-secondary-container/20 text-electric-glow border-r-4 border-electric-glow hover:bg-glass-border transition-all duration-300 group/item" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="opacity-0 group-hover:opacity-100 font-label-caps tracking-[0.2em] whitespace-nowrap">CANDIDATES</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded text-on-surface-variant/60 hover:text-on-surface hover:bg-glass-border transition-all duration-300 group/item" href="#">
+<span class="material-symbols-outlined text-2xl">account_tree</span>
+<span class="opacity-0 group-hover:opacity-100 font-label-caps tracking-[0.2em] whitespace-nowrap">PIPELINE</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded text-on-surface-variant/60 hover:text-on-surface hover:bg-glass-border transition-all duration-300 group/item" href="#">
+<span class="material-symbols-outlined text-2xl">query_stats</span>
+<span class="opacity-0 group-hover:opacity-100 font-label-caps tracking-[0.2em] whitespace-nowrap">ANALYTICS</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded text-on-surface-variant/60 hover:text-on-surface hover:bg-glass-border transition-all duration-300 group/item" href="#">
+<span class="material-symbols-outlined text-2xl">inventory_2</span>
+<span class="opacity-0 group-hover:opacity-100 font-label-caps tracking-[0.2em] whitespace-nowrap">ARCHIVE</span>
+</a>
+</nav>
+<div class="px-4 mb-4">
+<button class="w-full py-3 bg-secondary-container text-white font-label-caps tracking-widest rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 hover:brightness-125 active:scale-95">
+                INITIATE SCAN
+            </button>
+</div>
+<div class="flex flex-col gap-2 px-2 pt-4 border-t border-glass-border">
+<a class="flex items-center gap-4 p-3 rounded text-on-surface-variant/60 hover:text-on-surface group/item" href="#">
+<span class="material-symbols-outlined text-2xl">shield</span>
+<span class="opacity-0 group-hover:opacity-100 font-label-caps tracking-[0.2em]">SECURITY</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded text-on-surface-variant/60 hover:text-on-surface group/item" href="#">
+<span class="material-symbols-outlined text-2xl">help_center</span>
+<span class="opacity-0 group-hover:opacity-100 font-label-caps tracking-[0.2em]">SUPPORT</span>
+</a>
+</div>
+</aside>
+<!-- Main Engine Canvas -->
+<main class="relative w-full h-screen flex items-center justify-center overflow-hidden bg-obsidian-base">
+<!-- Background Atmospheric Layer -->
+<div class="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-midnight-deep via-obsidian-base to-black"></div>
+<div class="absolute inset-0 z-0 opacity-20" style="background-image: radial-gradient(circle, #E2E8F0 1px, transparent 1px); background-size: 80px 80px;"></div>
+<!-- ENGINE VISUALIZATION -->
+<div class="relative z-10 w-full max-w-7xl h-[819px] flex items-center justify-between px-margin-desktop">
+<!-- CONFIDENCE STREAM (Left) -->
+<div class="relative w-1/3 flex flex-col items-start space-y-12">
+<div class="space-y-2">
+<h2 class="font-display-xl text-display-xl text-cyan-pulse font-extrabold uppercase tracking-tighter">CONFIDENCE</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant/60 tracking-[0.3em]">CANDIDATE CLAIMS / NEURAL ECHO</p>
+</div>
+<div class="w-full space-y-6">
+<!-- Claim Nodes -->
+<div class="glass-pane p-4 w-full flex items-center gap-4 border-l-4 border-cyan-pulse/50">
+<span class="font-mono-data text-mono-data text-cyan-pulse">01</span>
+<span class="font-headline-md text-headline-md text-on-surface">LEADERSHIP SCALABILITY</span>
+<div class="ml-auto w-12 h-1 bg-cyan-pulse/20 overflow-hidden">
+<div class="h-full bg-cyan-pulse w-3/4"></div>
+</div>
+</div>
+<div class="glass-pane p-4 w-full flex items-center gap-4 border-l-4 border-cyan-pulse/50">
+<span class="font-mono-data text-mono-data text-cyan-pulse">02</span>
+<span class="font-headline-md text-headline-md text-on-surface">ARCHITECTURAL DEPTH</span>
+<div class="ml-auto w-12 h-1 bg-cyan-pulse/20 overflow-hidden">
+<div class="h-full bg-cyan-pulse w-5/6"></div>
+</div>
+</div>
+<div class="glass-pane p-4 w-full flex items-center gap-4 border-l-4 border-error/50">
+<span class="font-mono-data text-mono-data text-error">03</span>
+<span class="font-headline-md text-headline-md text-on-surface">STRATEGIC EXIT RADAR</span>
+<div class="ml-auto w-12 h-1 bg-error/20 overflow-hidden">
+<div class="h-full bg-error w-full"></div>
+</div>
+</div>
+</div>
+<!-- Collision Energy Streamers (Visual Only) -->
+<div class="absolute right-[-100px] top-1/2 -translate-y-1/2 flex flex-col gap-8 pointer-events-none opacity-40">
+<div class="h-[1px] w-[200px] bg-gradient-to-r from-transparent via-cyan-pulse to-transparent blur-[1px]"></div>
+<div class="h-[1px] w-[300px] bg-gradient-to-r from-transparent via-cyan-pulse to-transparent blur-[2px]"></div>
+<div class="h-[1px] w-[150px] bg-gradient-to-r from-transparent via-cyan-pulse to-transparent blur-[0.5px]"></div>
+</div>
+</div>
+<!-- CENTRAL COLLISION CORE -->
+<div class="relative w-1/3 h-full flex flex-col items-center justify-center">
+<!-- Visual Instability (Glitch Layer) -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[500px] h-[500px] rounded-full border border-error/20 scale-125 mix-blend-screen animate-pulse blur-xl"></div>
+<div class="absolute w-[400px] h-[2px] bg-error/40 rotate-[15deg] blur-[10px]"></div>
+<div class="absolute w-[400px] h-[2px] bg-cyan-pulse/40 -rotate-[15deg] blur-[10px]"></div>
+</div>
+<!-- AUTHENTICITY CORE -->
+<div class="relative w-80 h-80 flex items-center justify-center">
+<div class="absolute inset-0 bg-electric-glow/10 rounded-full blur-[80px]"></div>
+<div class="relative z-20 w-64 h-64 glass-pane rounded-full border-2 border-primary/20 flex flex-col items-center justify-center text-center p-8 glow-electric overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-tr from-cyan-pulse/10 to-electric-glow/10"></div>
+<div class="relative space-y-2">
+<p class="font-label-caps text-label-caps text-on-surface-variant/80">AUTHENTICITY CORE</p>
+<h1 class="font-display-xl text-5xl font-bold text-primary tracking-tighter">88.4%</h1>
+<div class="flex gap-1 justify-center">
+<div class="w-1.5 h-1.5 bg-electric-glow"></div>
+<div class="w-1.5 h-1.5 bg-electric-glow"></div>
+<div class="w-1.5 h-1.5 bg-electric-glow"></div>
+<div class="w-1.5 h-1.5 bg-on-surface/20"></div>
+</div>
+</div>
+<!-- Synchronized Glow Artifacts -->
+<div class="absolute top-0 w-full h-[1px] bg-gradient-to-r from-transparent via-electric-glow to-transparent opacity-50"></div>
+<div class="absolute bottom-0 w-full h-[1px] bg-gradient-to-r from-transparent via-electric-glow to-transparent opacity-50"></div>
+</div>
+<!-- Scanning Rings -->
+<div class="absolute inset-0 rounded-full border border-electric-glow/10 scale-[1.1]"></div>
+<div class="absolute inset-0 rounded-full border border-cyan-pulse/10 scale-[1.3]"></div>
+<div class="absolute inset-0 rounded-full border-t border-error/30 rotate-45 scale-[1.5]"></div>
+</div>
+<div class="mt-16 text-center space-y-4">
+<div class="px-6 py-2 glass-pane border-electric-glow/30">
+<span class="font-mono-data text-mono-data text-electric-glow tracking-widest">STABLE TRUST PROTOCOL ENGAGED</span>
+</div>
+<p class="font-body-md text-on-surface-variant/60 max-w-xs text-sm">
+                        High alignment detected in technical depth. Minor variance found in leadership narrative vectors.
+                    </p>
+</div>
+</div>
+<!-- EVIDENCE STREAM (Right) -->
+<div class="relative w-1/3 flex flex-col items-end space-y-12">
+<div class="space-y-2 text-right">
+<h2 class="font-display-xl text-display-xl text-electric-glow font-extrabold uppercase tracking-tighter">EVIDENCE</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant/60 tracking-[0.3em]">PROJECT DEPTH / TRUTH INDEX</p>
+</div>
+<div class="w-full space-y-6">
+<!-- Evidence Nodes -->
+<div class="glass-pane p-4 w-full flex items-center justify-end gap-4 border-r-4 border-electric-glow/50">
+<div class="mr-auto w-12 h-1 bg-electric-glow/20 overflow-hidden">
+<div class="h-full bg-electric-glow w-full"></div>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface">GH-REPO: PULSE-V2</span>
+<span class="font-mono-data text-mono-data text-electric-glow">VERIFIED</span>
+</div>
+<div class="glass-pane p-4 w-full flex items-center justify-end gap-4 border-r-4 border-electric-glow/50">
+<div class="mr-auto w-12 h-1 bg-electric-glow/20 overflow-hidden">
+<div class="h-full bg-electric-glow w-[92%]"></div>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface">STAK-3 PEER REVIEW</span>
+<span class="font-mono-data text-mono-data text-electric-glow">SECURE</span>
+</div>
+<div class="glass-pane p-4 w-full flex items-center justify-end gap-4 border-r-4 border-error/50">
+<div class="mr-auto w-12 h-1 bg-error/20 overflow-hidden">
+<div class="h-full bg-error w-[40%]"></div>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface">PAST-KPI AUDIT</span>
+<span class="font-mono-data text-mono-data text-error">GAP DETECTED</span>
+</div>
+</div>
+<!-- Collision Energy Streamers (Visual Only) -->
+<div class="absolute left-[-100px] top-1/2 -translate-y-1/2 flex flex-col gap-8 pointer-events-none opacity-40">
+<div class="h-[1px] w-[200px] bg-gradient-to-l from-transparent via-electric-glow to-transparent blur-[1px]"></div>
+<div class="h-[1px] w-[300px] bg-gradient-to-l from-transparent via-electric-glow to-transparent blur-[2px]"></div>
+<div class="h-[1px] w-[150px] bg-gradient-to-l from-transparent via-electric-glow to-transparent blur-[0.5px]"></div>
+</div>
+</div>
+</div>
+<!-- Bottom Data Grid (Minimal UI Chrome) -->
+<div class="absolute bottom-12 left-gutter right-gutter flex justify-between items-end">
+<div class="flex gap-12">
+<div class="space-y-1">
+<p class="font-label-caps text-[10px] text-on-surface-variant/40 tracking-[0.2em]">COLLISION LATENCY</p>
+<p class="font-mono-data text-mono-data text-primary">0.0004ms</p>
+</div>
+<div class="space-y-1">
+<p class="font-label-caps text-[10px] text-on-surface-variant/40 tracking-[0.2em]">STREAM SYNC RATE</p>
+<p class="font-mono-data text-mono-data text-electric-glow">99.88%</p>
+</div>
+<div class="space-y-1">
+<p class="font-label-caps text-[10px] text-on-surface-variant/40 tracking-[0.2em]">NEURAL CONFIDENCE</p>
+<p class="font-mono-data text-mono-data text-cyan-pulse">PLATINUM TIER</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-3 glass-pane border-cyan-pulse text-cyan-pulse font-label-caps tracking-widest hover:bg-cyan-pulse hover:text-midnight-deep transition-all duration-500">DOWNLOAD DOSSIER</button>
+<button class="px-8 py-3 bg-electric-glow text-white font-label-caps tracking-widest hover:brightness-125 transition-all glow-electric">APPROVE CANDIDATE</button>
+</div>
+</div>
+<!-- Atmospheric Visual Elements (Motion Blur Lines) -->
+<div class="absolute top-1/4 left-1/4 w-96 h-[1px] bg-gradient-to-r from-transparent via-silver-particle/20 to-transparent blur-[4px] rotate-12 pointer-events-none"></div>
+<div class="absolute bottom-1/3 right-1/4 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-silver-particle/10 to-transparent blur-[2px] -rotate-6 pointer-events-none"></div>
+</main>
+<!-- Map Component (Invisible but for layout structure logic if needed) -->
+<div class="hidden" data-location="San Francisco" style=""></div>
+</body></html>

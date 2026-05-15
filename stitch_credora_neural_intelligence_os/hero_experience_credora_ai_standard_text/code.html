@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-pane {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-pulse {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+        .starfield {
+            background-image: radial-gradient(circle at 2px 2px, rgba(226, 232, 240, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c7c6cc",
+                        "on-primary-container": "#777b8a",
+                        "on-primary": "#2c303d",
+                        "on-tertiary-fixed-variant": "#004e5c",
+                        "secondary": "#adc6ff",
+                        "surface-container-lowest": "#0b0e14",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#e6ecff",
+                        "on-tertiary": "#003640",
+                        "on-primary-fixed-variant": "#434654",
+                        "primary-fixed": "#dfe2f3",
+                        "on-secondary": "#002e6a",
+                        "surface-bright": "#363940",
+                        "inverse-surface": "#e0e2eb",
+                        "surface-container-high": "#262a31",
+                        "inverse-on-surface": "#2d3137",
+                        "tertiary-container": "#001116",
+                        "glass-border": "rgba(255, 255, 255, 0.08)",
+                        "surface-container-highest": "#31353c",
+                        "on-error": "#690005",
+                        "outline": "#909096",
+                        "surface-container": "#1c2026",
+                        "surface-dim": "#101419",
+                        "surface-tint": "#c3c6d7",
+                        "primary-container": "#0a0e1a",
+                        "background": "#101419",
+                        "tertiary": "#4cd7f6",
+                        "outline-variant": "#46464c",
+                        "on-surface": "#e0e2eb",
+                        "on-background": "#e0e2eb",
+                        "midnight-deep": "#0A0E1A",
+                        "on-secondary-fixed": "#001a42",
+                        "obsidian-base": "#020408",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "inverse-primary": "#5a5e6d",
+                        "tertiary-fixed": "#acedff",
+                        "surface-container-low": "#181c22",
+                        "surface": "#101419",
+                        "electric-glow": "#3B82F6",
+                        "on-primary-fixed": "#171b28",
+                        "primary": "#c3c6d7",
+                        "silver-particle": "#E2E8F0",
+                        "secondary-container": "#0566d9",
+                        "on-secondary-fixed-variant": "#004395",
+                        "tertiary-fixed-dim": "#4cd7f6",
+                        "surface-variant": "#31353c",
+                        "primary-fixed-dim": "#c3c6d7",
+                        "on-tertiary-fixed": "#001f26",
+                        "cyan-pulse": "#06B6D4",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-tertiary-container": "#00879e",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "margin-desktop": "64px",
+                        "unit": "4px",
+                        "margin-mobile": "24px",
+                        "section-gap": "clamp(4rem, 10vh, 8rem)"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-caps": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Geist"],
+                        "display-xl": ["Geist"],
+                        "mono-data": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-md": ["1rem", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["0.875rem", {"lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "headline-lg": ["clamp(2.5rem, 5vw, 4rem)", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["1.25rem", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "headline-md": ["2rem", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "display-xl": ["clamp(3.5rem, 8vw, 6rem)", {"lineHeight": "1.05", "letterSpacing": "-0.05em", "fontWeight": "800"}],
+                        "mono-data": ["1rem", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-obsidian-base text-on-surface font-body-md overflow-x-hidden starfield">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-6 bg-transparent backdrop-blur-xl border-b border-glass-border">
+<div class="flex items-center gap-12">
+<span class="font-display-xl font-bold tracking-tighter text-primary drop-shadow-[0_0_15px_rgba(59,130,246,0.5)] text-headline-lg">CREDORA AI</span>
+<div class="hidden md:flex gap-8">
+<a class="text-cyan-pulse font-bold border-b-2 border-cyan-pulse pb-1 font-label-caps text-label-caps tracking-widest uppercase hover:text-white transition-all duration-300" href="#">INTEL</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-caps text-label-caps tracking-widest uppercase transition-all duration-300" href="#">NETWORK</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-caps text-label-caps tracking-widest uppercase transition-all duration-300" href="#">ASSETS</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors font-label-caps text-label-caps tracking-widest uppercase transition-all duration-300" href="#">OPERATIONS</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="p-2 text-primary hover:text-white transition-all duration-300 active:scale-95">
+<span class="material-symbols-outlined !text-3xl" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-primary hover:text-white transition-all duration-300 active:scale-95">
+<span class="material-symbols-outlined !text-3xl" data-icon="settings">settings</span>
+</button>
+<div class="h-12 w-12 rounded-full border border-glass-border overflow-hidden ring-2 ring-primary/20">
+<img alt="Chief Intelligence Officer Profile" class="w-full h-full object-cover" data-alt="A cinematic portrait of a professional male intelligence officer in a high-tech control room environment. He is wearing a minimalist dark tactical suit. The lighting is low-key with dramatic blue and silver highlights reflecting off glass surfaces. The background shows blurred holographic data streams and neural network visualizations in a dark, sophisticated obsidian-colored space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8na2KasydNAbWmWN6saVkWHSnMg7bWCkMpC01QcblcelKvjGuEFk2tR-ndV-iZXtz0d9llCtAElojhjGtUUm1we1ShaleK3miZJXtwjfsH9no6TCVrLtnBsAlxunknheB6FgQOvmap4t-jPt1et6lOFIi4IzGPBRBgl_5BA8SlUvS9thbK65KjfLqTMvO4s0f9qjkE-7nkFTlpJ33vE1P8vG1yt5NRDnPtUax6kepTKWjJ-rbUvg_56pTFV2K6wTpUcJXwJImew"/>
+</div>
+</div>
+</nav>
+<!-- Main Hero Experience -->
+<main class="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-24 px-gutter">
+<!-- Background Atmospheric Layer -->
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-electric-glow/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-pulse/5 rounded-full blur-[100px]"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 max-w-6xl w-full text-center flex flex-col items-center gap-16">
+<!-- Animated Title Group -->
+<div class="space-y-8">
+<h1 class="font-display-xl text-on-surface max-w-5xl mx-auto text-headline-lg">
+                    Recruiters may hesitate because your projects lack <span class="text-cyan-pulse drop-shadow-[0_0_15px_rgba(6,182,212,0.6)]">production-level depth.</span>
+</h1>
+<p class="font-body-lg text-on-surface-variant max-w-3xl mx-auto text-body-lg">
+                    Decode recruiter trust before interviews decide your future. Leverage our neural intelligence layer to validate your technical infrastructure with enterprise-grade precision.
+                </p>
+</div>
+<!-- Central CTA -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-cyan-pulse rounded-full blur opacity-30 group-hover:opacity-80 transition duration-1000 group-hover:duration-200"></div>
+<button class="relative glass-pane px-16 py-8 rounded-full font-label-caps text-label-caps text-cyan-pulse tracking-[0.4em] glow-pulse hover:bg-white/10 transition-all duration-500 border border-cyan-pulse/40 text-lg">
+                    START NEURAL ANALYSIS
+                </button>
+</div>
+<!-- Floating Intelligence Overlays (Bento-style items) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16 w-full">
+<!-- Overlay 1: Real-time Analysis -->
+<div class="glass-pane p-8 rounded-xl flex flex-col items-start text-left gap-6 transform hover:-translate-y-2 transition-all duration-500">
+<div class="flex items-center gap-3 text-cyan-pulse">
+<span class="material-symbols-outlined text-2xl" data-icon="psychology">psychology</span>
+<span class="font-label-caps text-label-caps">NEURAL SCANNER</span>
+</div>
+<div class="space-y-3 w-full">
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-cyan-pulse w-3/4"></div>
+</div>
+<p class="font-mono-data text-mono-data text-on-surface-variant">IDENTIFYING DEPTH ANOMALIES...</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 bg-secondary-container/20 border border-glass-border rounded-sm text-xs font-mono-data text-cyan-pulse">GIT_RECOGNITION: ACTIVE</span>
+<span class="px-3 py-1 bg-secondary-container/20 border border-glass-border rounded-sm text-xs font-mono-data text-cyan-pulse">LATENCY: 42MS</span>
+</div>
+</div>
+<!-- Overlay 2: Trust Matrix -->
+<div class="glass-pane p-8 rounded-xl flex flex-col items-start text-left gap-6 transform hover:-translate-y-2 transition-all duration-500 border-electric-glow/20">
+<div class="flex items-center gap-3 text-electric-glow">
+<span class="material-symbols-outlined text-2xl" data-icon="shield">shield</span>
+<span class="font-label-caps text-label-caps">TRUST METRIC</span>
+</div>
+<div class="flex items-end gap-3">
+<span class="font-display-xl leading-none text-on-surface text-headline-md">94.8</span>
+<span class="font-label-caps text-label-caps pb-1 text-on-surface-variant">TRUST_CORE</span>
+</div>
+<div class="w-full flex justify-between border-t border-glass-border pt-6">
+<div class="text-left">
+<p class="font-mono-data text-xs text-on-surface-variant uppercase tracking-wider mb-1">ARCHITECTURE</p>
+<p class="font-mono-data text-on-surface text-body-md font-bold">OPTIMAL</p>
+</div>
+<div class="text-right">
+<p class="font-mono-data text-xs text-on-surface-variant uppercase tracking-wider mb-1">SECURITY</p>
+<p class="font-mono-data text-on-surface text-body-md font-bold">HARDENED</p>
+</div>
+</div>
+</div>
+<!-- Overlay 3: Network Pulse -->
+<div class="glass-pane p-8 rounded-xl flex flex-col items-start text-left gap-6 transform hover:-translate-y-2 transition-all duration-500">
+<div class="flex items-center gap-3 text-tertiary">
+<span class="material-symbols-outlined text-2xl" data-icon="hub">hub</span>
+<span class="font-label-caps text-label-caps">SIGNAL_FEED</span>
+</div>
+<div class="flex flex-col gap-3 w-full">
+<div class="flex justify-between items-center bg-white/5 p-4 rounded border border-white/5">
+<span class="font-mono-data text-sm">RECRUITER_PING: AMZN</span>
+<span class="h-3 w-3 rounded-full bg-cyan-pulse animate-pulse"></span>
+</div>
+<div class="flex justify-between items-center bg-white/5 p-4 rounded border border-white/5">
+<span class="font-mono-data text-sm">RECRUITER_PING: GOOG</span>
+<span class="h-3 w-3 rounded-full bg-electric-glow animate-pulse"></span>
+</div>
+</div>
+<p class="font-mono-data text-sm text-on-surface-variant mt-2 italic">Monitoring neural handshake protocols...</p>
+</div>
+</div>
+</div>
+<!-- Bottom Visual Anchor -->
+<div class="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
+</main>
+<!-- SideNavBar (Hover-expand variant as per JSON) -->
+<aside class="fixed left-0 top-0 h-full z-[60] flex flex-col py-gutter bg-surface-container-lowest/60 backdrop-blur-3xl border-r border-glass-border w-24 hover:w-72 transition-all duration-500 ease-in-out group shadow-[25px_0_60px_rgba(0,0,0,0.6)]">
+<div class="flex flex-col items-center group-hover:items-start px-8 gap-3 mb-16">
+<div class="h-12 w-12 bg-primary/20 rounded flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="psychology">psychology</span>
+</div>
+<div class="hidden group-hover:flex flex-col">
+<span class="font-headline-md text-headline-md text-primary leading-tight">NEURAL HUD</span>
+<span class="font-label-caps text-xs text-tertiary">V0.4 ACTIVE_LINK</span>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-6">
+<!-- Active Tab: Intel/Dashboard -->
+<a class="flex items-center px-8 py-5 gap-6 bg-secondary-container/30 text-white border-r-4 border-electric-glow hover:translate-x-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined !text-3xl" data-icon="grid_view">grid_view</span>
+<span class="font-label-caps text-label-caps opacity-0 group-hover:opacity-100 transition-opacity">DASHBOARD</span>
+</a>
+<a class="flex items-center px-8 py-5 gap-6 text-on-surface-variant hover:text-white hover:bg-white/5 hover:translate-x-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined !text-3xl" data-icon="psychology">psychology</span>
+<span class="font-label-caps text-label-caps opacity-0 group-hover:opacity-100 transition-opacity">CANDIDATES</span>
+</a>
+<a class="flex items-center px-8 py-5 gap-6 text-on-surface-variant hover:text-white hover:bg-white/5 hover:translate-x-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined !text-3xl" data-icon="account_tree">account_tree</span>
+<span class="font-label-caps text-label-caps opacity-0 group-hover:opacity-100 transition-opacity">PIPELINE</span>
+</a>
+<a class="flex items-center px-8 py-5 gap-6 text-on-surface-variant hover:text-white hover:bg-white/5 hover:translate-x-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined !text-3xl" data-icon="query_stats">query_stats</span>
+<span class="font-label-caps text-label-caps opacity-0 group-hover:opacity-100 transition-opacity">ANALYTICS</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-4 border-t border-glass-border pt-10 pb-6">
+<a class="flex items-center px-8 py-5 gap-6 text-on-surface-variant hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined !text-3xl" data-icon="shield">shield</span>
+<span class="font-label-caps text-label-caps opacity-0 group-hover:opacity-100 transition-opacity">SECURITY</span>
+</a>
+<a class="flex items-center px-8 py-5 gap-6 text-on-surface-variant hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined !text-3xl" data-icon="help_center">help_center</span>
+<span class="font-label-caps text-label-caps opacity-0 group-hover:opacity-100 transition-opacity">SUPPORT</span>
+</a>
+</div>
+</aside>
+<!-- FAB Action (Contextual: Home screen) -->
+<button class="fixed bottom-gutter right-gutter h-20 w-20 rounded-full bg-cyan-pulse text-midnight-deep flex items-center justify-center shadow-[0_0_40px_rgba(6,182,212,0.6)] hover:scale-110 active:scale-95 transition-all duration-300 z-[70] group">
+<span class="material-symbols-outlined text-4xl font-bold group-hover:rotate-12 transition-transform duration-300" data-icon="bolt">bolt</span>
+</button>
+</body></html>
